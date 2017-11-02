@@ -1,0 +1,814 @@
+Shape Setup Engineering Log: Masteel_HSM3	Log Time: (?P<Log_Time>.+?)	Setup Time: (?P<Setup_Time>.+?)
+
+Product ID      : (?P<Product_ID>.+?)         Public Event : (?P<Public_Event>.+?)      
+Work Request    : (?P<Work_Request>.+?)       Setup OK        : (?P<Setup_OK>.+?)      Sim Mode     : (?P<Sim_Mode>.+?)	SSU Granted  : (?P<SSU_Granted>.+?)	SAMP permissive : (?P<SAMP_permissive>.+?)
+Setup Status    : (?P<Setup_Status>.+?)              Feedback OK     : (?P<Feedback_OK>.+?)      Ferritic Mode: (?P<Ferritic_Mode>.+?)	SSU Enabled  : (?P<SSU_Enabled>.+?)	SLFG permissive : (?P<SLFG_permissive>.+?)
+
+\|----------------- Profile -----------------\|------- Flatness ------\|---- Transfer Bar ---\|--------- Product ----------\|
+PDI    \[mm\]: (?P<PDIPrf>.+?) Int H w/ \[mm\]: (?P<Int_H_w>.+?) \| PDI    \[i-unt\]: (?P<PDIFlt>.+?) \| Prof  \[mm\]: (?P<Profl_Bar>.+?) \| PDI Thick  \[mm\]: (?P<PDI_Thick>.+?)
+Vrn    \[mm\]: (?P<VrnPrf>.+?) Fin H w/ \[mm\]: (?P<Fin_H_w>.+?) \| Del    \[i-unt\]: (?P<DelFlt>.+?) \| Thick \[mm\]: (?P<Thick_Bar>.+?) \| PDI Width  \[mm\]: (?P<PDI_Width>.+?)
+Vrn RM \[mm\]: (?P<Vrn_RM>.+?) Del C wov\[mm\]: (?P<DelCwov>.+?) \| Vrn     \[ kN \]: (?P<VrnFlt>.+?) \| Width \[mm\]: (?P<Width_Bar>.+?) \| GRT Idx     \[-\]: (?P<GRT_Idx>.+?)
+Vrn RS \[mm\]: (?P<Vrn_RS>.+?) PU    \[mm/mm\]: (?P<PerUnit>.+?) \| Achv       \[-\]: (?P<AchvFL>.+?) \| Temp  \[\^C\]: (?P<Temp_Bar>.+?)    \| Family Idx  \[-\]: (?P<Family_Idx>.+?)
+Tol LO \[mm\]: (?P<Pro_LO>.+?) Ef PU \[mm/mm\]: (?P<EffPerU>.+?) \| Tol LO \[i-unt\]: (?P<Flt_LO>.+?) \|                     \| Width Idx  \[-\]: (?P<Width_Idx>.+?)
+Tol HI \[mm\]: (?P<Pro_HI>.+?) Achv      \[-\]: (?P<Archive>.+?) \| Tol HI \[i-unt\]: (?P<Flt_HI>.+?) \|                     \| Matl Code   \[-\]: (?P<Matl_Code>.+?)
+Op Ofs \[mm\]: (?P<ProOOF>.+?) Dev Lim  \[mm\]: (?P<Dev_Lim>.+?) \| Op Ofs \[i-unt\]: (?P<FltOOF>.+?) \|                     \| Grade Cust  \[-\]: (?P<Grade_Cust>.+?)
+Raw Vrn RM \[mm\]: (?P<Raw_Vrn_RM>.+?)                     \| Raw Vrn RM 2 \[mm\]: (?P<Raw_Vrn_RM_2>.+?) 
+New Vrn RM \[mm\]: (?P<New_Vrn_RM>.+?)                     \| New Vrn RM 2 \[mm\]: (?P<Raw_Vrn_RM_2>.+?) 
+
+\|---------------------------------------- Profile Envelope \(1st Iter\.\) -----------------------------------------\|
+      Ef PU Prf         PU Prf        UFD PU Prf      Frc PU Wid       Frc Bnd       Pce Wr Crn       Wr Br Crn
+     Min     Max     Min     Max     Min     Max     Min     Max     Min     Max     Min     Max     Min     Max
+ #     \[mm/mm\]         \[mm/mm\]         \[mm/mm\]        \[ kN /mm\]        \[ kN \]           \[mm\]            \[mm\]
+ 0 (?P<Ef_PU_Prf_Min_0>.+?) (?P<Ef_PU_Prf_Max_0>.+?) (?P<PU_Prf_Min_0>.+?) (?P<PU_Prf_Max_0>.+?) 
+ 1 (?P<Ef_PU_Prf_Min_1>.+?) (?P<Ef_PU_Prf_Max_1>.+?) (?P<PU_Prf_Min_1>.+?) (?P<PU_Prf_Max_1>.+?) (?P<UFD_PU_Prf_Min_1>.+?) (?P<UFD_PU_Prf_Max_1>.+?)   (?P<Frc_PU_Wid_Min_1>.+?)   (?P<Frc_PU_Wid_Max_1>.+?) (?P<Frc_Bnd_Min_1>.+?)  (?P<Frc_Bnd_Max_1>.+?)   (?P<Pce_Wr_Crn_Min_1>.+?)   (?P<Pce_Wr_Crn_Max_1>.+?)   (?P<Wr_Br_Crn_Min_1>.+?)   (?P<Wr_Br_Crn_Max_1>.+?) 
+ 2 (?P<Ef_PU_Prf_Min_2>.+?) (?P<Ef_PU_Prf_Max_2>.+?) (?P<PU_Prf_Min_2>.+?) (?P<PU_Prf_Max_2>.+?) (?P<UFD_PU_Prf_Min_2>.+?) (?P<UFD_PU_Prf_Max_2>.+?)   (?P<Frc_PU_Wid_Min_2>.+?)   (?P<Frc_PU_Wid_Max_2>.+?) (?P<Frc_Bnd_Min_2>.+?)  (?P<Frc_Bnd_Max_2>.+?)   (?P<Pce_Wr_Crn_Min_2>.+?)   (?P<Pce_Wr_Crn_Max_2>.+?)   (?P<Wr_Br_Crn_Min_2>.+?)   (?P<Wr_Br_Crn_Max_2>.+?) 
+ 3 (?P<Ef_PU_Prf_Min_3>.+?) (?P<Ef_PU_Prf_Max_3>.+?) (?P<PU_Prf_Min_3>.+?) (?P<PU_Prf_Max_3>.+?) (?P<UFD_PU_Prf_Min_3>.+?) (?P<UFD_PU_Prf_Max_3>.+?)   (?P<Frc_PU_Wid_Min_3>.+?)   (?P<Frc_PU_Wid_Max_3>.+?) (?P<Frc_Bnd_Min_3>.+?)  (?P<Frc_Bnd_Max_3>.+?)   (?P<Pce_Wr_Crn_Min_3>.+?)   (?P<Pce_Wr_Crn_Max_3>.+?)   (?P<Wr_Br_Crn_Min_3>.+?)   (?P<Wr_Br_Crn_Max_3>.+?) 
+ 4 (?P<Ef_PU_Prf_Min_4>.+?) (?P<Ef_PU_Prf_Max_4>.+?) (?P<PU_Prf_Min_4>.+?) (?P<PU_Prf_Max_4>.+?) (?P<UFD_PU_Prf_Min_4>.+?) (?P<UFD_PU_Prf_Max_4>.+?)   (?P<Frc_PU_Wid_Min_4>.+?)   (?P<Frc_PU_Wid_Max_4>.+?) (?P<Frc_Bnd_Min_4>.+?)  (?P<Frc_Bnd_Max_4>.+?)   (?P<Pce_Wr_Crn_Min_4>.+?)   (?P<Pce_Wr_Crn_Max_4>.+?)   (?P<Wr_Br_Crn_Min_4>.+?)   (?P<Wr_Br_Crn_Max_4>.+?) 
+ 5 (?P<Ef_PU_Prf_Min_5>.+?) (?P<Ef_PU_Prf_Max_5>.+?) (?P<PU_Prf_Min_5>.+?) (?P<PU_Prf_Max_5>.+?) (?P<UFD_PU_Prf_Min_5>.+?) (?P<UFD_PU_Prf_Max_5>.+?)   (?P<Frc_PU_Wid_Min_5>.+?)   (?P<Frc_PU_Wid_Max_5>.+?) (?P<Frc_Bnd_Min_5>.+?)  (?P<Frc_Bnd_Max_5>.+?)   (?P<Pce_Wr_Crn_Min_5>.+?)   (?P<Pce_Wr_Crn_Max_5>.+?)   (?P<Wr_Br_Crn_Min_5>.+?)   (?P<Wr_Br_Crn_Max_5>.+?) 
+ 6 (?P<Ef_PU_Prf_Min_6>.+?) (?P<Ef_PU_Prf_Max_6>.+?) (?P<PU_Prf_Min_6>.+?) (?P<PU_Prf_Max_6>.+?) (?P<UFD_PU_Prf_Min_6>.+?) (?P<UFD_PU_Prf_Max_6>.+?)   (?P<Frc_PU_Wid_Min_6>.+?)   (?P<Frc_PU_Wid_Max_6>.+?) (?P<Frc_Bnd_Min_6>.+?)  (?P<Frc_Bnd_Max_6>.+?)   (?P<Pce_Wr_Crn_Min_6>.+?)   (?P<Pce_Wr_Crn_Max_6>.+?)   (?P<Wr_Br_Crn_Min_6>.+?)   (?P<Wr_Br_Crn_Max_6>.+?) 
+ 7 (?P<Ef_PU_Prf_Min_7>.+?) (?P<Ef_PU_Prf_Max_7>.+?) (?P<PU_Prf_Min_7>.+?) (?P<PU_Prf_Max_7>.+?) (?P<UFD_PU_Prf_Min_7>.+?) (?P<UFD_PU_Prf_Max_7>.+?)   (?P<Frc_PU_Wid_Min_7>.+?)   (?P<Frc_PU_Wid_Max_7>.+?) (?P<Frc_Bnd_Min_7>.+?)  (?P<Frc_Bnd_Max_7>.+?)   (?P<Pce_Wr_Crn_Min_7>.+?)   (?P<Pce_Wr_Crn_Max_7>.+?)   (?P<Wr_Br_Crn_Min_7>.+?)   (?P<Wr_Br_Crn_Max_7>.+?) 
+
+\|------- Allocation Results \(1st Iter\.\) ------\|------------- Allocation Requirements \(1st Iter\.\) --------------------\|
+    Des Bnd   Ef PU           UFD PU  Std Ex  \|   UFD   Flt   Frc PU   Des Frc   Frc PU Wid Chg          Pce    Ufd
+      Frc      Prf     Prf     Prf     Strn   \|  PU Prf  OK    Wid      PU Wid    Min     Max   SSUFrc   Thck  Mult
+ #   \[ kN \]  \[mm/mm\]   \[mm\]  \[mm/mm\]  \[mm/mm\] \| \[mm/mm\] \[-\] \[ kN /mm\] \[ kN /mm\]    \[ kN /mm\]    \[ kN \]   \[mm\]   \[-\]
+ 0  (?P<Des_Bnd_0>.+?) (?P<Ef_PU_Prf_Alc_0>.+?)                  \|
+ 1  (?P<Des_Bnd_1>.+?) (?P<Ef_PU_Prf_Alc_1>.+?) (?P<Prf_Alc_1>.+?) (?P<UFD_PU_Prf_Alc_1>.+?) (?P<Std_Ex_Strn_Alc_1>.+?) \| (?P<UFD_PU_Prf_Req_1>.+?)  (?P<Flt_OK_Req_1>.+?)     (?P<Frc_PU_Wid_Req_1>.+?)     (?P<Des_Frc_PU_Wid_Req_1>.+?)    (?P<Frc_PU_Wid_Chg_Min_1>.+?)   (?P<Frc_PU_Wid_Chg_Max_1>.+?)     (?P<SSUFrc_1>.+?) (?P<Pce_Thck_Req_1>.+?) (?P<Ufd_Mult_1>.+?)
+ 2  (?P<Des_Bnd_2>.+?) (?P<Ef_PU_Prf_Alc_2>.+?) (?P<Prf_Alc_2>.+?) (?P<UFD_PU_Prf_Alc_2>.+?) (?P<Std_Ex_Strn_Alc_2>.+?) \| (?P<UFD_PU_Prf_Req_2>.+?)  (?P<Flt_OK_Req_2>.+?)     (?P<Frc_PU_Wid_Req_2>.+?)     (?P<Des_Frc_PU_Wid_Req_2>.+?)    (?P<Frc_PU_Wid_Chg_Min_2>.+?)   (?P<Frc_PU_Wid_Chg_Max_2>.+?)     (?P<SSUFrc_2>.+?) (?P<Pce_Thck_Req_2>.+?) (?P<Ufd_Mult_2>.+?)
+ 3  (?P<Des_Bnd_3>.+?) (?P<Ef_PU_Prf_Alc_3>.+?) (?P<Prf_Alc_3>.+?) (?P<UFD_PU_Prf_Alc_3>.+?) (?P<Std_Ex_Strn_Alc_3>.+?) \| (?P<UFD_PU_Prf_Req_3>.+?)  (?P<Flt_OK_Req_3>.+?)     (?P<Frc_PU_Wid_Req_3>.+?)     (?P<Des_Frc_PU_Wid_Req_3>.+?)    (?P<Frc_PU_Wid_Chg_Min_3>.+?)   (?P<Frc_PU_Wid_Chg_Max_3>.+?)     (?P<SSUFrc_3>.+?) (?P<Pce_Thck_Req_3>.+?) (?P<Ufd_Mult_3>.+?)
+ 4  (?P<Des_Bnd_4>.+?) (?P<Ef_PU_Prf_Alc_4>.+?) (?P<Prf_Alc_4>.+?) (?P<UFD_PU_Prf_Alc_4>.+?) (?P<Std_Ex_Strn_Alc_4>.+?) \| (?P<UFD_PU_Prf_Req_4>.+?)  (?P<Flt_OK_Req_4>.+?)     (?P<Frc_PU_Wid_Req_4>.+?)     (?P<Des_Frc_PU_Wid_Req_4>.+?)    (?P<Frc_PU_Wid_Chg_Min_4>.+?)   (?P<Frc_PU_Wid_Chg_Max_4>.+?)     (?P<SSUFrc_4>.+?) (?P<Pce_Thck_Req_4>.+?) (?P<Ufd_Mult_4>.+?)
+ 5  (?P<Des_Bnd_5>.+?) (?P<Ef_PU_Prf_Alc_5>.+?) (?P<Prf_Alc_5>.+?) (?P<UFD_PU_Prf_Alc_5>.+?) (?P<Std_Ex_Strn_Alc_5>.+?) \| (?P<UFD_PU_Prf_Req_5>.+?)  (?P<Flt_OK_Req_5>.+?)     (?P<Frc_PU_Wid_Req_5>.+?)     (?P<Des_Frc_PU_Wid_Req_5>.+?)    (?P<Frc_PU_Wid_Chg_Min_5>.+?)   (?P<Frc_PU_Wid_Chg_Max_5>.+?)     (?P<SSUFrc_5>.+?) (?P<Pce_Thck_Req_5>.+?) (?P<Ufd_Mult_5>.+?)
+ 6  (?P<Des_Bnd_6>.+?) (?P<Ef_PU_Prf_Alc_6>.+?) (?P<Prf_Alc_6>.+?) (?P<UFD_PU_Prf_Alc_6>.+?) (?P<Std_Ex_Strn_Alc_6>.+?) \| (?P<UFD_PU_Prf_Req_6>.+?)  (?P<Flt_OK_Req_6>.+?)     (?P<Frc_PU_Wid_Req_6>.+?)     (?P<Des_Frc_PU_Wid_Req_6>.+?)    (?P<Frc_PU_Wid_Chg_Min_6>.+?)   (?P<Frc_PU_Wid_Chg_Max_6>.+?)     (?P<SSUFrc_6>.+?) (?P<Pce_Thck_Req_6>.+?) (?P<Ufd_Mult_6>.+?)
+ 7  (?P<Des_Bnd_7>.+?) (?P<Ef_PU_Prf_Alc_7>.+?) (?P<Prf_Alc_7>.+?) (?P<UFD_PU_Prf_Alc_7>.+?) (?P<Std_Ex_Strn_Alc_7>.+?) \| (?P<UFD_PU_Prf_Req_7>.+?)  (?P<Flt_OK_Req_7>.+?)     (?P<Frc_PU_Wid_Req_7>.+?)     (?P<Des_Frc_PU_Wid_Req_7>.+?)    (?P<Frc_PU_Wid_Chg_Min_7>.+?)   (?P<Frc_PU_Wid_Chg_Max_7>.+?)     (?P<SSUFrc_7>.+?) (?P<Pce_Thck_Req_7>.+?) (?P<Ufd_Mult_7>.+?)
+
+\|------------------ Setup Results \(1st Iter\.\) -------------------\|----- Evaluation Results \(1st Iter\.\) -------\|
+                                                           WR    \|
+     Pce     Ten      Flw     Pce Dum Load          Bnd Shft/Pc  \|  Ef PU           UFD PU  Std Ex          Flt
+     Thck   Stress   Stress  Temp Std Dist   Frc    Frc    Pos   \|   Prf     Prf     Prf     Strn    Steep   OK
+ #   \[mm\]  \[ MPa  \] \[ MPa  \] \[\^C\] \[-\]  \[-\] \[ kN \] \[ kN \]  \[mm\]   \| \[mm/mm\]   \[mm\]  \[mm/mm\]  \[mm/mm\]   \[-\]   \[-\]
+ 0                                                               \|  (?P<Ef_PU_Prf_Evl_0>.+?)  (?P<Prf_Evl_0>.+?)
+ 1 (?P<Pce_Thck_Sup_1>.+?)   (?P<Ten_Stress_Sup_1>.+?)   (?P<Flw_Stress_Sup_1>.+?) (?P<Pce_Temp_Sup_1>.+?)  (?P<Dum_std_Sup_1>.+?)  (?P<Load_Dist_Sup_1>.+?)  (?P<Force_Sup_1>.+?)   (?P<Bnd_Frc_Sup_1>.+?) (?P<WR_Shift_Pos_Sup_1>.+?) \|  (?P<Ef_PU_Prf_Evl_1>.+?)  (?P<Prf_Evl_1>.+?)  (?P<UFD_PU_Prf_Evl_1>.+?)  (?P<Std_Ex_Strn_Evl_1>.+?) (?P<Steep_Evl_1>.+?)  (?P<Flt_OK_Evl_1>.+?)
+ 2 (?P<Pce_Thck_Sup_2>.+?)   (?P<Ten_Stress_Sup_2>.+?)   (?P<Flw_Stress_Sup_2>.+?) (?P<Pce_Temp_Sup_2>.+?)  (?P<Dum_std_Sup_2>.+?)  (?P<Load_Dist_Sup_2>.+?)  (?P<Force_Sup_2>.+?)   (?P<Bnd_Frc_Sup_2>.+?) (?P<WR_Shift_Pos_Sup_2>.+?) \|  (?P<Ef_PU_Prf_Evl_2>.+?)  (?P<Prf_Evl_2>.+?)  (?P<UFD_PU_Prf_Evl_2>.+?)  (?P<Std_Ex_Strn_Evl_2>.+?) (?P<Steep_Evl_2>.+?)  (?P<Flt_OK_Evl_2>.+?)
+ 3 (?P<Pce_Thck_Sup_3>.+?)   (?P<Ten_Stress_Sup_3>.+?)   (?P<Flw_Stress_Sup_3>.+?) (?P<Pce_Temp_Sup_3>.+?)  (?P<Dum_std_Sup_3>.+?)  (?P<Load_Dist_Sup_3>.+?)  (?P<Force_Sup_3>.+?)   (?P<Bnd_Frc_Sup_3>.+?) (?P<WR_Shift_Pos_Sup_3>.+?) \|  (?P<Ef_PU_Prf_Evl_3>.+?)  (?P<Prf_Evl_3>.+?)  (?P<UFD_PU_Prf_Evl_3>.+?)  (?P<Std_Ex_Strn_Evl_3>.+?) (?P<Steep_Evl_3>.+?)  (?P<Flt_OK_Evl_3>.+?)
+ 4 (?P<Pce_Thck_Sup_4>.+?)   (?P<Ten_Stress_Sup_4>.+?)   (?P<Flw_Stress_Sup_4>.+?) (?P<Pce_Temp_Sup_4>.+?)  (?P<Dum_std_Sup_4>.+?)  (?P<Load_Dist_Sup_4>.+?)  (?P<Force_Sup_4>.+?)   (?P<Bnd_Frc_Sup_4>.+?) (?P<WR_Shift_Pos_Sup_4>.+?) \|  (?P<Ef_PU_Prf_Evl_4>.+?)  (?P<Prf_Evl_4>.+?)  (?P<UFD_PU_Prf_Evl_4>.+?)  (?P<Std_Ex_Strn_Evl_4>.+?) (?P<Steep_Evl_4>.+?)  (?P<Flt_OK_Evl_4>.+?)
+ 5 (?P<Pce_Thck_Sup_5>.+?)   (?P<Ten_Stress_Sup_5>.+?)   (?P<Flw_Stress_Sup_5>.+?) (?P<Pce_Temp_Sup_5>.+?)  (?P<Dum_std_Sup_5>.+?)  (?P<Load_Dist_Sup_5>.+?)  (?P<Force_Sup_5>.+?)   (?P<Bnd_Frc_Sup_5>.+?) (?P<WR_Shift_Pos_Sup_5>.+?) \|  (?P<Ef_PU_Prf_Evl_5>.+?)  (?P<Prf_Evl_5>.+?)  (?P<UFD_PU_Prf_Evl_5>.+?)  (?P<Std_Ex_Strn_Evl_5>.+?) (?P<Steep_Evl_5>.+?)  (?P<Flt_OK_Evl_5>.+?)
+ 6 (?P<Pce_Thck_Sup_6>.+?)   (?P<Ten_Stress_Sup_6>.+?)   (?P<Flw_Stress_Sup_6>.+?) (?P<Pce_Temp_Sup_6>.+?)  (?P<Dum_std_Sup_6>.+?)  (?P<Load_Dist_Sup_6>.+?)  (?P<Force_Sup_6>.+?)   (?P<Bnd_Frc_Sup_6>.+?) (?P<WR_Shift_Pos_Sup_6>.+?) \|  (?P<Ef_PU_Prf_Evl_6>.+?)  (?P<Prf_Evl_6>.+?)  (?P<UFD_PU_Prf_Evl_6>.+?)  (?P<Std_Ex_Strn_Evl_6>.+?) (?P<Steep_Evl_6>.+?)  (?P<Flt_OK_Evl_6>.+?)
+ 7 (?P<Pce_Thck_Sup_7>.+?)   (?P<Ten_Stress_Sup_7>.+?)   (?P<Flw_Stress_Sup_7>.+?) (?P<Pce_Temp_Sup_7>.+?)  (?P<Dum_std_Sup_7>.+?)  (?P<Load_Dist_Sup_7>.+?)  (?P<Force_Sup_7>.+?)   (?P<Bnd_Frc_Sup_7>.+?) (?P<WR_Shift_Pos_Sup_7>.+?) \|  (?P<Ef_PU_Prf_Evl_7>.+?)  (?P<Prf_Evl_7>.+?)  (?P<UFD_PU_Prf_Evl_7>.+?)  (?P<Std_Ex_Strn_Evl_7>.+?) (?P<Steep_Evl_7>.+?)  (?P<Flt_OK_Evl_7>.+?)
+
+\|----------------------------------------- Composite Roll Stack Crowns ----------------------------------------------------------\|
+    Pce WR  WR BR   Pce WR    BR    WR BR   Pce WR  WR BR     WR      BR      WR      WR      WR   Dlt Pce  Dlt WR  SLFG    SPRP
+Std  Gap     Gap     Wear    Wear    Wear    Thrm    Thrm    Grnd    Grnd    Eqv     Vern    Offs   WR_Gap  BR_Gap   WR      WR
+ #   \[mm\]    \[mm\]    \[mm\]    \[mm\]    \[mm\]    \[mm\]    \[mm\]    \[mm\]    \[mm\]    \[mm\]    \[mm\]    \[mm\]    \[mm\]    \[mm\]   Offs     Offs
+ 1 (?P<Pce_WR_Gap_1>.+?) (?P<WR_BR_Gap_1>.+?) (?P<Pce_WR_Wear_1>.+?) (?P<BR_Wear_1>.+?) (?P<WR_BR_Wear_1>.+?) (?P<Pce_WR_Thrm_1>.+?) (?P<WR_BR_Thrm_1>.+?) (?P<WR_Grnd_1>.+?) (?P<BR_Grnd_1>.+?) (?P<WR_Eqv_1>.+?) (?P<WR_Vern_1>.+?) (?P<WR_Offs_1>.+?) (?P<Dlt_Pce_WR_Gap_1>.+?) (?P<Dlt_WR_BR_Gap_1>.+?) (?P<SLFG_WR_Offs_1>.+?) (?P<SPRP_WR_Offs_1>.+?) 
+ 2 (?P<Pce_WR_Gap_2>.+?) (?P<WR_BR_Gap_2>.+?) (?P<Pce_WR_Wear_2>.+?) (?P<BR_Wear_2>.+?) (?P<WR_BR_Wear_2>.+?) (?P<Pce_WR_Thrm_2>.+?) (?P<WR_BR_Thrm_2>.+?) (?P<WR_Grnd_2>.+?) (?P<BR_Grnd_2>.+?) (?P<WR_Eqv_2>.+?) (?P<WR_Vern_2>.+?) (?P<WR_Offs_2>.+?) (?P<Dlt_Pce_WR_Gap_2>.+?) (?P<Dlt_WR_BR_Gap_2>.+?) (?P<SLFG_WR_Offs_2>.+?) (?P<SPRP_WR_Offs_2>.+?) 
+ 3 (?P<Pce_WR_Gap_3>.+?) (?P<WR_BR_Gap_3>.+?) (?P<Pce_WR_Wear_3>.+?) (?P<BR_Wear_3>.+?) (?P<WR_BR_Wear_3>.+?) (?P<Pce_WR_Thrm_3>.+?) (?P<WR_BR_Thrm_3>.+?) (?P<WR_Grnd_3>.+?) (?P<BR_Grnd_3>.+?) (?P<WR_Eqv_3>.+?) (?P<WR_Vern_3>.+?) (?P<WR_Offs_3>.+?) (?P<Dlt_Pce_WR_Gap_3>.+?) (?P<Dlt_WR_BR_Gap_3>.+?) (?P<SLFG_WR_Offs_3>.+?) (?P<SPRP_WR_Offs_3>.+?) 
+ 4 (?P<Pce_WR_Gap_4>.+?) (?P<WR_BR_Gap_4>.+?) (?P<Pce_WR_Wear_4>.+?) (?P<BR_Wear_4>.+?) (?P<WR_BR_Wear_4>.+?) (?P<Pce_WR_Thrm_4>.+?) (?P<WR_BR_Thrm_4>.+?) (?P<WR_Grnd_4>.+?) (?P<BR_Grnd_4>.+?) (?P<WR_Eqv_4>.+?) (?P<WR_Vern_4>.+?) (?P<WR_Offs_4>.+?) (?P<Dlt_Pce_WR_Gap_4>.+?) (?P<Dlt_WR_BR_Gap_4>.+?) (?P<SLFG_WR_Offs_4>.+?) (?P<SPRP_WR_Offs_4>.+?) 
+ 5 (?P<Pce_WR_Gap_5>.+?) (?P<WR_BR_Gap_5>.+?) (?P<Pce_WR_Wear_5>.+?) (?P<BR_Wear_5>.+?) (?P<WR_BR_Wear_5>.+?) (?P<Pce_WR_Thrm_5>.+?) (?P<WR_BR_Thrm_5>.+?) (?P<WR_Grnd_5>.+?) (?P<BR_Grnd_5>.+?) (?P<WR_Eqv_5>.+?) (?P<WR_Vern_5>.+?) (?P<WR_Offs_5>.+?) (?P<Dlt_Pce_WR_Gap_5>.+?) (?P<Dlt_WR_BR_Gap_5>.+?) (?P<SLFG_WR_Offs_5>.+?) (?P<SPRP_WR_Offs_5>.+?) 
+ 6 (?P<Pce_WR_Gap_6>.+?) (?P<WR_BR_Gap_6>.+?) (?P<Pce_WR_Wear_6>.+?) (?P<BR_Wear_6>.+?) (?P<WR_BR_Wear_6>.+?) (?P<Pce_WR_Thrm_6>.+?) (?P<WR_BR_Thrm_6>.+?) (?P<WR_Grnd_6>.+?) (?P<BR_Grnd_6>.+?) (?P<WR_Eqv_6>.+?) (?P<WR_Vern_6>.+?) (?P<WR_Offs_6>.+?) (?P<Dlt_Pce_WR_Gap_6>.+?) (?P<Dlt_WR_BR_Gap_6>.+?) (?P<SLFG_WR_Offs_6>.+?) (?P<SPRP_WR_Offs_6>.+?) 
+ 7 (?P<Pce_WR_Gap_7>.+?) (?P<WR_BR_Gap_7>.+?) (?P<Pce_WR_Wear_7>.+?) (?P<BR_Wear_7>.+?) (?P<WR_BR_Wear_7>.+?) (?P<Pce_WR_Thrm_7>.+?) (?P<WR_BR_Thrm_7>.+?) (?P<WR_Grnd_7>.+?) (?P<BR_Grnd_7>.+?) (?P<WR_Eqv_7>.+?) (?P<WR_Vern_7>.+?) (?P<WR_Offs_7>.+?) (?P<Dlt_Pce_WR_Gap_7>.+?) (?P<Dlt_WR_BR_Gap_7>.+?) (?P<SLFG_WR_Offs_7>.+?) (?P<SPRP_WR_Offs_7>.+?) 
+
+\|---------------------------------- Lateral Piece \(1st Iter\.\) / Piece Quantities ----------------------------------------------\|
+        Bckl Lim       Bckl Mul      Bckl Off      Ef PU Prf Chg Lim                   Wdth-To-
+Std   CB       WE      CB    WE     CB       WE       CB       WE    Strn_Rlf Infl_Cof   Thck   Attn_Fac   Elas_Mod Pu_Prf_Chg
+ #      \[mm/mm\]          \[-\]          \[mm/mm\]           \[mm/mm\]         \[-\]      \[-\]    \[mm/mm\]    \[-\]     \[ MPa  \]
+ 1 (?P<Bckl_Lim_CB_1>.+?) (?P<Bckl_Lim_WE_1>.+?) (?P<Bckl_Mul_CB_1>.+?) (?P<Bckl_Mul_WE_1>.+?) (?P<Bckl_Off_CB_1>.+?) (?P<Bckl_Off_WE_1>.+?) (?P<Ef_PU_Prf_Chg_Lim_CB_1>.+?) (?P<Ef_PU_Prf_Chg_Lim_WE_1>.+?)  (?P<Strn_Rlf_1>.+?)   (?P<Infl_Cof_1>.+?)    (?P<Wdth_to_Thck_1>.+?)    (?P<Attn_Fac_1>.+?)  (?P<Elas_Mod_1>.+?) (?P<PU_Prf_Chg_1>.+?)
+ 2 (?P<Bckl_Lim_CB_2>.+?) (?P<Bckl_Lim_WE_2>.+?) (?P<Bckl_Mul_CB_2>.+?) (?P<Bckl_Mul_WE_2>.+?) (?P<Bckl_Off_CB_2>.+?) (?P<Bckl_Off_WE_2>.+?) (?P<Ef_PU_Prf_Chg_Lim_CB_2>.+?) (?P<Ef_PU_Prf_Chg_Lim_WE_2>.+?)  (?P<Strn_Rlf_2>.+?)   (?P<Infl_Cof_2>.+?)    (?P<Wdth_to_Thck_2>.+?)    (?P<Attn_Fac_2>.+?)  (?P<Elas_Mod_2>.+?) (?P<PU_Prf_Chg_2>.+?)
+ 3 (?P<Bckl_Lim_CB_3>.+?) (?P<Bckl_Lim_WE_3>.+?) (?P<Bckl_Mul_CB_3>.+?) (?P<Bckl_Mul_WE_3>.+?) (?P<Bckl_Off_CB_3>.+?) (?P<Bckl_Off_WE_3>.+?) (?P<Ef_PU_Prf_Chg_Lim_CB_3>.+?) (?P<Ef_PU_Prf_Chg_Lim_WE_3>.+?)  (?P<Strn_Rlf_3>.+?)   (?P<Infl_Cof_3>.+?)    (?P<Wdth_to_Thck_3>.+?)    (?P<Attn_Fac_3>.+?)  (?P<Elas_Mod_3>.+?) (?P<PU_Prf_Chg_3>.+?)
+ 4 (?P<Bckl_Lim_CB_4>.+?) (?P<Bckl_Lim_WE_4>.+?) (?P<Bckl_Mul_CB_4>.+?) (?P<Bckl_Mul_WE_4>.+?) (?P<Bckl_Off_CB_4>.+?) (?P<Bckl_Off_WE_4>.+?) (?P<Ef_PU_Prf_Chg_Lim_CB_4>.+?) (?P<Ef_PU_Prf_Chg_Lim_WE_4>.+?)  (?P<Strn_Rlf_4>.+?)   (?P<Infl_Cof_4>.+?)    (?P<Wdth_to_Thck_4>.+?)    (?P<Attn_Fac_4>.+?)  (?P<Elas_Mod_4>.+?) (?P<PU_Prf_Chg_4>.+?)
+ 5 (?P<Bckl_Lim_CB_5>.+?) (?P<Bckl_Lim_WE_5>.+?) (?P<Bckl_Mul_CB_5>.+?) (?P<Bckl_Mul_WE_5>.+?) (?P<Bckl_Off_CB_5>.+?) (?P<Bckl_Off_WE_5>.+?) (?P<Ef_PU_Prf_Chg_Lim_CB_5>.+?) (?P<Ef_PU_Prf_Chg_Lim_WE_5>.+?)  (?P<Strn_Rlf_5>.+?)   (?P<Infl_Cof_5>.+?)    (?P<Wdth_to_Thck_5>.+?)    (?P<Attn_Fac_5>.+?)  (?P<Elas_Mod_5>.+?) (?P<PU_Prf_Chg_5>.+?)
+ 6 (?P<Bckl_Lim_CB_6>.+?) (?P<Bckl_Lim_WE_6>.+?) (?P<Bckl_Mul_CB_6>.+?) (?P<Bckl_Mul_WE_6>.+?) (?P<Bckl_Off_CB_6>.+?) (?P<Bckl_Off_WE_6>.+?) (?P<Ef_PU_Prf_Chg_Lim_CB_6>.+?) (?P<Ef_PU_Prf_Chg_Lim_WE_6>.+?)  (?P<Strn_Rlf_6>.+?)   (?P<Infl_Cof_6>.+?)    (?P<Wdth_to_Thck_6>.+?)    (?P<Attn_Fac_6>.+?)  (?P<Elas_Mod_6>.+?) (?P<PU_Prf_Chg_6>.+?)
+ 7 (?P<Bckl_Lim_CB_7>.+?) (?P<Bckl_Lim_WE_7>.+?) (?P<Bckl_Mul_CB_7>.+?) (?P<Bckl_Mul_WE_7>.+?) (?P<Bckl_Off_CB_7>.+?) (?P<Bckl_Off_WE_7>.+?) (?P<Ef_PU_Prf_Chg_Lim_CB_7>.+?) (?P<Ef_PU_Prf_Chg_Lim_WE_7>.+?)  (?P<Strn_Rlf_7>.+?)   (?P<Infl_Cof_7>.+?)    (?P<Wdth_to_Thck_7>.+?)    (?P<Attn_Fac_7>.+?)  (?P<Elas_Mod_7>.+?) (?P<PU_Prf_Chg_7>.+?)
+
+\|------------ UFD Partial Derivatives -------------\|-- Force Partial Derivatives --\|
+    Dgap/Dfrcw  Dgap/Dbnd  Dgap/Dpcewr  Dgap/Dwrbr \|  Dfrcw/Dhen  OK  Dfrcw/Dhex  OK
+ #  \[mm2/ kN \]  \[mm/ kN \]   \[mm/mm\]      \[mm/mm\]   \|  \[ kN /mm2\] \[-\]  \[ kN /mm2\] \[-\]
+ 1 (?P<Dgap_Dfrcw_1>.+?) (?P<Dgap_Dbnd_1>.+?) (?P<Dgap_Dpcewr_1>.+?) (?P<Dgap_Dwrbr_1>.+?) \| (?P<Dfrcw_Dhen_1>.+?)  (?P<Dfrcw_Dhen_OK_1>.+?)  (?P<Dfrcw_Dhex_1>.+?)  (?P<Dfrcw_Dhex_OK_1>.+?)
+ 2 (?P<Dgap_Dfrcw_2>.+?) (?P<Dgap_Dbnd_2>.+?) (?P<Dgap_Dpcewr_2>.+?) (?P<Dgap_Dwrbr_2>.+?) \| (?P<Dfrcw_Dhen_2>.+?)  (?P<Dfrcw_Dhen_OK_2>.+?)  (?P<Dfrcw_Dhex_2>.+?)  (?P<Dfrcw_Dhex_OK_2>.+?)
+ 3 (?P<Dgap_Dfrcw_3>.+?) (?P<Dgap_Dbnd_3>.+?) (?P<Dgap_Dpcewr_3>.+?) (?P<Dgap_Dwrbr_3>.+?) \| (?P<Dfrcw_Dhen_3>.+?)  (?P<Dfrcw_Dhen_OK_3>.+?)  (?P<Dfrcw_Dhex_3>.+?)  (?P<Dfrcw_Dhex_OK_3>.+?)
+ 4 (?P<Dgap_Dfrcw_4>.+?) (?P<Dgap_Dbnd_4>.+?) (?P<Dgap_Dpcewr_4>.+?) (?P<Dgap_Dwrbr_4>.+?) \| (?P<Dfrcw_Dhen_4>.+?)  (?P<Dfrcw_Dhen_OK_4>.+?)  (?P<Dfrcw_Dhex_4>.+?)  (?P<Dfrcw_Dhex_OK_4>.+?)
+ 5 (?P<Dgap_Dfrcw_5>.+?) (?P<Dgap_Dbnd_5>.+?) (?P<Dgap_Dpcewr_5>.+?) (?P<Dgap_Dwrbr_5>.+?) \| (?P<Dfrcw_Dhen_5>.+?)  (?P<Dfrcw_Dhen_OK_5>.+?)  (?P<Dfrcw_Dhex_5>.+?)  (?P<Dfrcw_Dhex_OK_5>.+?)
+ 6 (?P<Dgap_Dfrcw_6>.+?) (?P<Dgap_Dbnd_6>.+?) (?P<Dgap_Dpcewr_6>.+?) (?P<Dgap_Dwrbr_6>.+?) \| (?P<Dfrcw_Dhen_6>.+?)  (?P<Dfrcw_Dhen_OK_6>.+?)  (?P<Dfrcw_Dhex_6>.+?)  (?P<Dfrcw_Dhex_OK_6>.+?)
+ 7 (?P<Dgap_Dfrcw_7>.+?) (?P<Dgap_Dbnd_7>.+?) (?P<Dgap_Dpcewr_7>.+?) (?P<Dgap_Dwrbr_7>.+?) \| (?P<Dfrcw_Dhen_7>.+?)  (?P<Dfrcw_Dhen_OK_7>.+?)  (?P<Dfrcw_Dhex_7>.+?)  (?P<Dfrcw_Dhex_OK_7>.+?)
+
+\|----------------- APFC Process Transfer Functions / Gains -----------------\|
+    Dbnd/Dfrc  Dbnd/Dpcewr Dpcewr/Dwrbr  Dbnd/Dpuprf   Dbnd/Dflt   Dbnd_Dshft
+ # \[ kN / kN \]  \[ kN /mm\]     \[mm/mm\]   \[ kN /mm/mm\] \[ kN /i-unt\]   \[ kN /mm\]
+ 1 (?P<Dbnd_Dfrc_1>.+?) (?P<Dbnd_Dpcewr_1>.+?)  (?P<Dpcewr_Dwrbr_1>.+?)  (?P<Dbnd_Dpuprf_1>.+?)  (?P<Dbnd_Dflt_1>.+?) (?P<Dbnd_Dshft_1>.+?)
+ 2 (?P<Dbnd_Dfrc_2>.+?) (?P<Dbnd_Dpcewr_2>.+?)  (?P<Dpcewr_Dwrbr_2>.+?)  (?P<Dbnd_Dpuprf_2>.+?)  (?P<Dbnd_Dflt_2>.+?) (?P<Dbnd_Dshft_2>.+?)
+ 3 (?P<Dbnd_Dfrc_3>.+?) (?P<Dbnd_Dpcewr_3>.+?)  (?P<Dpcewr_Dwrbr_3>.+?)  (?P<Dbnd_Dpuprf_3>.+?)  (?P<Dbnd_Dflt_3>.+?) (?P<Dbnd_Dshft_3>.+?)
+ 4 (?P<Dbnd_Dfrc_4>.+?) (?P<Dbnd_Dpcewr_4>.+?)  (?P<Dpcewr_Dwrbr_4>.+?)  (?P<Dbnd_Dpuprf_4>.+?)  (?P<Dbnd_Dflt_4>.+?) (?P<Dbnd_Dshft_4>.+?)
+ 5 (?P<Dbnd_Dfrc_5>.+?) (?P<Dbnd_Dpcewr_5>.+?)  (?P<Dpcewr_Dwrbr_5>.+?)  (?P<Dbnd_Dpuprf_5>.+?)  (?P<Dbnd_Dflt_5>.+?) (?P<Dbnd_Dshft_5>.+?)
+ 6 (?P<Dbnd_Dfrc_6>.+?) (?P<Dbnd_Dpcewr_6>.+?)  (?P<Dpcewr_Dwrbr_6>.+?)  (?P<Dbnd_Dpuprf_6>.+?)  (?P<Dbnd_Dflt_6>.+?) (?P<Dbnd_Dshft_6>.+?)
+ 7 (?P<Dbnd_Dfrc_7>.+?) (?P<Dbnd_Dpcewr_7>.+?)  (?P<Dpcewr_Dwrbr_7>.+?)  (?P<Dbnd_Dpuprf_7>.+?)  (?P<Dbnd_Dflt_7>.+?) (?P<Dbnd_Dshft_7>.+?)
+
+\|------------- Actuator Soft Limits ------------\|----------------------- Actuator Status -----------------------\|-- Sync\. Scan --\|
+                                                \|         Bnd                 \*\*\*\* WR Shift \*\*\*\*                \|  Start  Duration
+          Bnd Frc                WR Shft        \| Bnd   Frc    Bnd   Bled                  Sys   FFC TC APC AFC \|  Len     Len
+     Min    Nom    Max      Min    Nom    Max   \| Enb  Offs    Frc   Offs   Enb   Pos     Targ   Enb Enb Enb Enb\| \[ m \]   \[ m \]
+ # \[ kN \] \[ kN \] \[ kN \]    \[mm\]   \[mm\]   \[mm\]   \| \[-\] \[ kN \] \[ kN \] \[ kN \]  \[-\]   \[mm\]     \[mm\]  \[-\] \[-\] \[-\] \[-\]\|   0\.0    0\.0
+ 1    (?P<Bnd_Frc_Min_1>.+?)    (?P<Bnd_Frc_Nom_1>.+?)   (?P<Bnd_Frc_Max_1>.+?) (?P<WR_Shft_Min_1>.+?)    (?P<WR_Shft_Nom_1>.+?) (?P<WR_Shft_Max_1>.+?) \|  (?P<Bnd_Enb_1>.+?)      (?P<Bnd_Frc_Offs_1>.+?)     (?P<Bnd_Frc_Actuator_Status_1>.+?)    (?P<Bnd_Bled_Offs_1>.+?)   (?P<WR_Shft_Enb_Actuator_Status_1>.+?)     (?P<WR_Shft_Pos_Actuator_Status_1>.+?)  (?P<WR_Shft_Sys_Targ_Actuator_Status_1>.+?)  (?P<FFC_Enb_1>.+?)   (?P<TC_Enb_1>.+?)   (?P<APC_Enb_1>.+?)   (?P<AFC_Enb_1>.+?) \|   (?P<Sync_Scan_Len_1>.+?)
+ 2    (?P<Bnd_Frc_Min_2>.+?)    (?P<Bnd_Frc_Nom_2>.+?)   (?P<Bnd_Frc_Max_2>.+?) (?P<WR_Shft_Min_2>.+?)    (?P<WR_Shft_Nom_2>.+?) (?P<WR_Shft_Max_2>.+?) \|  (?P<Bnd_Enb_2>.+?)      (?P<Bnd_Frc_Offs_2>.+?)     (?P<Bnd_Frc_Actuator_Status_2>.+?)    (?P<Bnd_Bled_Offs_2>.+?)   (?P<WR_Shft_Enb_Actuator_Status_2>.+?)     (?P<WR_Shft_Pos_Actuator_Status_2>.+?)  (?P<WR_Shft_Sys_Targ_Actuator_Status_2>.+?)  (?P<FFC_Enb_2>.+?)   (?P<TC_Enb_2>.+?)   (?P<APC_Enb_2>.+?)   (?P<AFC_Enb_2>.+?) \|   (?P<Sync_Scan_Len_2>.+?)
+ 3    (?P<Bnd_Frc_Min_3>.+?)    (?P<Bnd_Frc_Nom_3>.+?)   (?P<Bnd_Frc_Max_3>.+?) (?P<WR_Shft_Min_3>.+?)    (?P<WR_Shft_Nom_3>.+?) (?P<WR_Shft_Max_3>.+?) \|  (?P<Bnd_Enb_3>.+?)      (?P<Bnd_Frc_Offs_3>.+?)     (?P<Bnd_Frc_Actuator_Status_3>.+?)    (?P<Bnd_Bled_Offs_3>.+?)   (?P<WR_Shft_Enb_Actuator_Status_3>.+?)     (?P<WR_Shft_Pos_Actuator_Status_3>.+?)  (?P<WR_Shft_Sys_Targ_Actuator_Status_3>.+?)  (?P<FFC_Enb_3>.+?)   (?P<TC_Enb_3>.+?)   (?P<APC_Enb_3>.+?)   (?P<AFC_Enb_3>.+?) \|   (?P<Sync_Scan_Len_3>.+?)
+ 4    (?P<Bnd_Frc_Min_4>.+?)    (?P<Bnd_Frc_Nom_4>.+?)   (?P<Bnd_Frc_Max_4>.+?) (?P<WR_Shft_Min_4>.+?)    (?P<WR_Shft_Nom_4>.+?) (?P<WR_Shft_Max_4>.+?) \|  (?P<Bnd_Enb_4>.+?)      (?P<Bnd_Frc_Offs_4>.+?)     (?P<Bnd_Frc_Actuator_Status_4>.+?)    (?P<Bnd_Bled_Offs_4>.+?)   (?P<WR_Shft_Enb_Actuator_Status_4>.+?)     (?P<WR_Shft_Pos_Actuator_Status_4>.+?)  (?P<WR_Shft_Sys_Targ_Actuator_Status_4>.+?)  (?P<FFC_Enb_4>.+?)   (?P<TC_Enb_4>.+?)   (?P<APC_Enb_4>.+?)   (?P<AFC_Enb_4>.+?) \|   (?P<Sync_Scan_Len_4>.+?)
+ 5    (?P<Bnd_Frc_Min_5>.+?)    (?P<Bnd_Frc_Nom_5>.+?)   (?P<Bnd_Frc_Max_5>.+?) (?P<WR_Shft_Min_5>.+?)    (?P<WR_Shft_Nom_5>.+?) (?P<WR_Shft_Max_5>.+?) \|  (?P<Bnd_Enb_5>.+?)      (?P<Bnd_Frc_Offs_5>.+?)     (?P<Bnd_Frc_Actuator_Status_5>.+?)    (?P<Bnd_Bled_Offs_5>.+?)   (?P<WR_Shft_Enb_Actuator_Status_5>.+?)     (?P<WR_Shft_Pos_Actuator_Status_5>.+?)  (?P<WR_Shft_Sys_Targ_Actuator_Status_5>.+?)  (?P<FFC_Enb_5>.+?)   (?P<TC_Enb_5>.+?)   (?P<APC_Enb_5>.+?)   (?P<AFC_Enb_5>.+?) \|   (?P<Sync_Scan_Len_5>.+?)
+ 6    (?P<Bnd_Frc_Min_6>.+?)    (?P<Bnd_Frc_Nom_6>.+?)   (?P<Bnd_Frc_Max_6>.+?) (?P<WR_Shft_Min_6>.+?)    (?P<WR_Shft_Nom_6>.+?) (?P<WR_Shft_Max_6>.+?) \|  (?P<Bnd_Enb_6>.+?)      (?P<Bnd_Frc_Offs_6>.+?)     (?P<Bnd_Frc_Actuator_Status_6>.+?)    (?P<Bnd_Bled_Offs_6>.+?)   (?P<WR_Shft_Enb_Actuator_Status_6>.+?)     (?P<WR_Shft_Pos_Actuator_Status_6>.+?)  (?P<WR_Shft_Sys_Targ_Actuator_Status_6>.+?)  (?P<FFC_Enb_6>.+?)   (?P<TC_Enb_6>.+?)   (?P<APC_Enb_6>.+?)   (?P<AFC_Enb_6>.+?) \|   (?P<Sync_Scan_Len_6>.+?)
+ 7    (?P<Bnd_Frc_Min_7>.+?)    (?P<Bnd_Frc_Nom_7>.+?)   (?P<Bnd_Frc_Max_7>.+?) (?P<WR_Shft_Min_7>.+?)    (?P<WR_Shft_Nom_7>.+?) (?P<WR_Shft_Max_7>.+?) \|  (?P<Bnd_Enb_7>.+?)      (?P<Bnd_Frc_Offs_7>.+?)     (?P<Bnd_Frc_Actuator_Status_7>.+?)    (?P<Bnd_Bled_Offs_7>.+?)   (?P<WR_Shft_Enb_Actuator_Status_7>.+?)     (?P<WR_Shft_Pos_Actuator_Status_7>.+?)  (?P<WR_Shft_Sys_Targ_Actuator_Status_7>.+?)  (?P<FFC_Enb_7>.+?)   (?P<TC_Enb_7>.+?)   (?P<APC_Enb_7>.+?)   (?P<AFC_Enb_7>.+?) \|   (?P<Sync_Scan_Len_7>.+?)
+
+\|---------------------------------------------------- Roll Static Data --------------------------------------------------------------\|
+                           Work Rolls                              \|                         Backup Rolls
+                                            Eqv Elas  Matl         \|                                                Eqv Elas   Matl
+   Top Crn Bot Crn  Top/Bot Ser # Avg Dia     Mod     Type Profile \| Top Crn Bot Crn Equ Crn Top/Bot Ser # Avg Dia     Mod     Type
+ #   \[mm\]    \[mm\]     \[-\]    \[-\]    \[mm\]   \[ MPa  \]    \[-\]   \[-\]   \|   \[mm\]    \[mm\]    \[mm\]    \[-\]    \[-\]    \[mm\]    \[ MPa  \]  \[-\]
+ 1 (?P<Bnd_Frc_Min_1>.+?) -0\.3000 FW20510/FW20509 768\.13 2\.073e\+005  CI14  cvc1   \|  0\.3500  0\.3500  0\.1510 FB2000/FB2000 1514\.31  2\.109e\+005    FS
+ 2 (?P<Bnd_Frc_Min_2>.+?) -0\.3000 FW20252/FW20251 741\.42 2\.064e\+005  CI14  cvc1   \|  0\.3500  0\.3500  0\.1510 FB2001/FB2001 1505\.45  2\.108e\+005    FS
+ 3 (?P<Bnd_Frc_Min_3>.+?) -0\.3000 FW20238/FW20237 739\.14 2\.063e\+005  CI14  cvc1   \|  0\.3500  0\.3500  0\.1510 FB2002/FB2001 1510\.45  2\.109e\+005    FS
+ 4 (?P<Bnd_Frc_Min_4>.+?) -0\.3000 FW20196/FW20195 737\.37 2\.063e\+005  CI14  cvc1   \|  0\.3500  0\.3500  0\.1510 FB2003/FB2002 1498\.71  2\.107e\+005    FS
+ 5 (?P<Bnd_Frc_Min_5>.+?) -0\.4000 FW60108/FW60107 694\.57 1\.971e\+005 SSCI5  parab  \|  0\.0300  0\.0300  0\.0000 FB2001/FB2002 1501\.95  2\.108e\+005    FS
+ 6 (?P<Bnd_Frc_Min_6>.+?) -0\.3600 FW60534/FW60533 649\.13 2\.004e\+005 SSCI5  parab  \|  0\.0300  0\.0300  0\.0000 FB2004/FB2003 1496\.42  2\.107e\+005    FS
+ 7 (?P<Bnd_Frc_Min_7>.+?) -0\.3600 FW60106/FW60105 659\.19 1\.996e\+005 SSCI5  parab  \|  0\.0300  0\.0300  0\.0000 FB2002/FB2002 1490\.54  2\.106e\+005    FS
+
+ \|------CVC curve------------------------ Strip width--------------\|
+ \|    a1          a2          a3       \| Min Crn  Max Crn \| Pce_wid
+ #   \[-\]         \[-\]         \[-\]       \|  \[mm\]     \[mm\]   \|  \[mm\]
+ 1 1\.374e-003 -1\.958e-006  7\.545e-010  \| -0\.2742  0\.0914  \| 1037\.7 
+ 2 1\.374e-003 -1\.958e-006  7\.545e-010  \| -0\.2742  0\.0914  \| 1037\.7 
+ 3 1\.374e-003 -1\.958e-006  7\.545e-010  \| -0\.2742  0\.0914  \| 1037\.7 
+ 4 1\.374e-003 -1\.958e-006  7\.545e-010  \| -0\.2742  0\.0914  \| 1037\.7 
+ 5 0\.000e\+000  0\.000e\+000  0\.000e\+000  \|  0\.0000  0\.0000  \| 1037\.7 
+ 6 0\.000e\+000  0\.000e\+000  0\.000e\+000  \|  0\.0000  0\.0000  \| 1037\.7 
+ 7 0\.000e\+000  0\.000e\+000  0\.000e\+000  \|  0\.0000  0\.0000  \| 1037\.7 
+
+\|-------------------------------------------------- Roll Dynamic Data ---------------------------------------------------\|
+                               Work Rolls                               \|                   Backup Rolls
+     Top_Len   Top_Num   Bot_Len   Bot_Num Srf_Temp Avg_Temp Avg_Wear BW\|   Top_Len   Top_Num   Bot_Len   Bot_Num Avg_Wear
+ #     \[m \]      \[-\]       \[m \]      \[-\]     \[\^C\]     \[\^C\]     \[mm\]     \|     \[m \]      \[-\]       \[m \]      \[-\]     \[mm\]
+ 1  4\.233e\+003      40  4\.233e\+003      40     27       48    -0\.0229 F \|  4\.778e\+005    4749  4\.778e\+005    4749  -0\.0000
+ 2  7\.405e\+003      40  7\.405e\+003      40     32       53    -0\.0415 F \|  8\.253e\+005    4749  8\.253e\+005    4749  -0\.0000
+ 3  1\.149e\+004      40  1\.149e\+004      40     47       45    -0\.0589 F \|  1\.286e\+006    4749  1\.286e\+006    4749  -0\.0000
+ 4  1\.713e\+004      40  1\.713e\+004      40     55       50    -0\.0775 F \|  1\.885e\+006    4749  1\.885e\+006    4749  -0\.0000
+ 5  2\.378e\+004      40  2\.378e\+004      40     29       44    -0\.0660 F \|  6\.694e\+005    1194  6\.694e\+005    1194  -0\.0000
+ 6  3\.034e\+004      40  3\.034e\+004      40     61       45    -0\.0699 F \|  1\.255e\+006    1814  1\.255e\+006    1814  -0\.0000
+ 7  3\.549e\+004      40  3\.549e\+004      40     63       45    -0\.0562 F \|  1\.446e\+006    1814  1\.446e\+006    1814  -0\.0000
+
+\|-------------------- Setup Record Data ----------------------------------------------------------\|
+      sup     org     ofs     sup    sup                  WR            WR                         
+     force   force   force   shift   pc     load        expans         wear                        
+      bnd     bnd     bnd     pos   angle   dist      top    bot  lst_rz  lst_rc    Prf      Flt   
+ #  \[kN/ch\] \[kN/ch\] \[kN/ch\]  \[mm\]   \[deg\]  \[-\] \[-\]    \[mm\]   \[mm\]   \[mm\]   \[mm\]     \[mm\]   \[i-unit\]
+ 1    345\.1   345\.1     0\.0  -141      0    F  0\.000  0\.141  0\.141 -0\.022 -0\.022  376\.983      10 
+ 2    404\.1   404\.1     0\.0  -107      0    F  0\.000  0\.177  0\.177 -0\.040 -0\.040  281\.075       9 
+ 3    442\.1   422\.1    20\.0  -111      0    F  0\.000  0\.138  0\.138 -0\.057 -0\.057  184\.213       8 
+ 4    427\.7   427\.7     0\.0   -77      0    F  0\.000  0\.159  0\.159 -0\.075 -0\.075  125\.480       8 
+ 5    452\.2   452\.2     0\.0  -104      0    F  0\.000  0\.123  0\.123 -0\.064 -0\.064   89\.772       8 
+ 6    466\.8   466\.8     0\.0  \+104      0    F  0\.000  0\.114  0\.114 -0\.068 -0\.068   70\.409       9 
+ 7    168\.0   168\.0     0\.0  -104      0    F  0\.000  0\.127  0\.127 -0\.055 -0\.055   60\.802      19 
+
+ Shape Feedback Data 
+
+ C25 Prf :  0\.0572  W25 Wed :  -0\.0187 Vld: T Hd  Sym:   -7 ASym:    4 Vld: T
+ C40 Prf :  0\.0411  W40 Wed :  -0\.0156 Vld: T Mid Sym:    2 ASym:    0 Vld: T
+ C50 Prf :  0\.0314  W50 Wed :  -0\.0123
+ C100 Prf:  0\.0263  W100 Wed:  -0\.0083 RMX_Prf:  0\.0513 
+ ASFC dFB:  -13\.88 
+
+\|----------------------------------- Feedback Results  flat scan --------------------------------------------------------------\|
+                                                             L2     L1                                     Bnd          Pce  WR
+                                                      Bnd    Bnd    Bnd                         Bnd        Frc  PC  Wr  WR   BR
+     Pce      Ten      Flw    Pce Dum          Bnd    Frc    Frc    Frc    PC     Roll  Pce_WR  WR_BR  Frc Ofs Angl Shf Gap Gap
+     Thck   Stress   Stress  Temp Std   Frc    Frc    Off    Off    Off   Angl    Shift   Gap    Gap    OK OK  OK   OK  OK  OK
+ #   \[mm\]  \[  MPA \] \[  MPA \] \[\^C\] \[-\] \[ kN \] \[ kN \] \[ kN \] \[ kN \] \[ kN \]  \[deg\]   \[mm\]   \[mm\]    \[mm\]  \[-\] \[-\] \[-\] \[-\] \[-\] \[-\]
+ 0 40\.8948    0\.000 
+ 1 23\.5728    0\.000   154\.67 1072  F   16179    751      0      0      0  0\.000 -140\.61  0\.1927  0\.1927  T   T   F   T   T   T
+ 2 13\.3822    7\.014   183\.45  998  F   15826    718      0      0      0  0\.000 -107\.15  0\.2260  0\.2260  T   T   F   T   T   T
+ 3  8\.4865   13\.584   219\.11  984  F   14502    933      0      0      0  0\.000 -110\.96  0\.1235  0\.1235  T   T   F   T   T   T
+ 4  5\.7491   15\.936   240\.81  968  F   12972    630      0      0      0  0\.000  -76\.97  0\.1297  0\.1297  T   T   F   T   T   T
+ 5  4\.0726   15\.041   257\.75  948  F   12199    911      0      0      0  0\.000 -104\.40  0\.0957  0\.0957  T   T   F   T   T   T
+ 6  3\.1829   17\.855   272\.16  933  F    9236    920      0      0      0  0\.000  104\.40  0\.0794  0\.0794  T   T   F   T   T   T
+ 7  2\.7869    0\.000   261\.21  912  F    6070    298    -14      0    -14  0\.000 -104\.41  0\.1218  0\.1218  T   T   F   T   T   T
+
+
+\|----------------------------------- Feedback Results   prf scan --------------------------------------------------------------\|
+                                                             L2     L1                                     Bnd          Pce  WR
+                                                      Bnd    Bnd    Bnd                         Bnd        Frc  PC  Wr  WR   BR
+     Pce      Ten      Flw    Pce Dum          Bnd    Frc    Frc    Frc    PC     Roll  Pce_WR  WR_BR  Frc Ofs Angl Shf Gap Gap
+     Thck   Stress   Stress  Temp Std   Frc    Frc    Off    Off    Off   Angl    Shift   Gap    Gap    OK OK  OK   OK  OK  OK
+ #   \[mm\]  \[  MPA \] \[  MPA \] \[\^C\] \[-\] \[ kN \] \[ kN \] \[ kN \] \[ kN \] \[ kN \]  \[deg\]   \[mm\]   \[mm\]    \[mm\]  \[-\] \[-\] \[-\] \[-\] \[-\] \[-\]
+ 0 40\.8948    0\.000 
+ 1 23\.5914    6\.799   165\.97 1072  F   17613   1119      0      0      0  0\.000 -140\.60  0\.2024  0\.2024  T   T   F   T   T   T
+ 2 13\.4112    8\.086   186\.51  970  F   17470   1162      0      0      0  0\.000 -107\.16  0\.2469  0\.2469  T   T   F   T   T   T
+ 3  8\.5558    8\.889   223\.75  964  F   15534   1216      0      0      0  0\.000 -110\.99  0\.1375  0\.1375  T   T   F   T   T   T
+ 4  5\.7396   11\.797   240\.01  955  F   13268    724      0      0      0  0\.000  -76\.96  0\.1469  0\.1469  T   T   F   T   T   T
+ 5  4\.1319   12\.871   263\.34  943  F   12321    903      0      0      0  0\.000 -104\.41  0\.1064  0\.1064  T   T   F   T   T   T
+ 6  3\.2454   14\.542   266\.88  932  F    8586    814      0      0      0  0\.000  104\.40  0\.0840  0\.0840  T   T   F   T   T   T
+ 7  2\.7869    0\.000   260\.96  915  F    5681    232    -14      0    -14  0\.000 -104\.40  0\.1313  0\.1313  T   T   F   T   T   T
+
+
+\|----------- Reprediction Results ---------flatness scan------ Observation Results ----------------\|
+                                            \|                                            Bnd    Sup
+    Eff PU          UFD PU  Std Ex          \|  Eff PU  UFD PU  Std Ex   Pce WR  WR BR    Frc    Bnd
+     Prf     Prf     Prf     Strn    Steep  \|   Prf     Prf     Strn     Gap     Gap     Off    Frc
+ # \[mm/mm\]   \[mm\]  \[mm/mm\]  \[mm/mm\]   \[-\]   \| \[mm/mm\] \[mm/mm\]  \[mm/mm\]   \[mm\]    \[mm\]  \[  kN \] \[  kN \]
+ 0  0\.0000  0\.0000                          \| 
+ 1  0\.0168  0\.3967  0\.0182  0\.00017  0\.0000 \|  0\.0072  0\.0085  0\.00017  0\.2609  0\.3884      0    690 
+ 2  0\.0233  0\.3127  0\.0247  0\.00011  0\.0000 \|  0\.0134  0\.0148  0\.00011  0\.1001  0\.2846      0    808 
+ 3  0\.0244  0\.2077  0\.0267  0\.00015  0\.0000 \|  0\.0144  0\.0166  0\.00014  0\.0325  0\.2068      0    844 
+ 4  0\.0250  0\.1449  0\.0314  0\.00031  0\.0000 \|  0\.0150  0\.0208  0\.00029  0\.0099  0\.1926      0    855 
+ 5  0\.0251  0\.1024  0\.0273  0\.00007  0\.0000 \|  0\.0151  0\.0173  0\.00007 -0\.0878 -0\.0339      0    904 
+ 6  0\.0252  0\.0803  0\.0280  0\.00009  0\.0000 \|  0\.0151  0\.0179  0\.00009 -0\.1309 -0\.0691      0    934 
+ 7  0\.0252  0\.0709  0\.0320  0\.00025  0\.0000 \|  0\.0151  0\.0131 -0\.00007  0\.0193  0\.0494    -14    336 
+
+\|----------- Reprediction Results -------prf scan------------- Observation Results ----------------\|
+                                            \|                                            Bnd    Sup
+    Eff PU          UFD PU  Std Ex          \|  Eff PU  UFD PU  Std Ex   Pce WR  WR BR    Frc    Bnd
+     Prf     Prf     Prf     Strn    Steep  \|   Prf     Prf     Strn     Gap     Gap     Off    Frc
+ # \[mm/mm\]   \[mm\]  \[mm/mm\]  \[mm/mm\]   \[-\]   \| \[mm/mm\] \[mm/mm\]  \[mm/mm\]   \[mm\]    \[mm\]  \[  kN \] \[  kN \]
+ 0  0\.0000  0\.0000                          \| 
+ 1  0\.0167  0\.3950  0\.0182  0\.00017  0\.0000 \|  0\.0070  0\.0086  0\.00017  0\.2731  0\.3999      0    690 
+ 2  0\.0229  0\.3083  0\.0245  0\.00011  0\.0000 \|  0\.0133  0\.0148  0\.00011  0\.1039  0\.2934      0    808 
+ 3  0\.0240  0\.2056  0\.0263  0\.00014  0\.0000 \|  0\.0143  0\.0167  0\.00014  0\.0321  0\.2106      0    844 
+ 4  0\.0245  0\.1417  0\.0306  0\.00029  0\.0000 \|  0\.0149  0\.0209  0\.00029  0\.0048  0\.1941      0    855 
+ 5  0\.0246  0\.1019  0\.0268  0\.00007  0\.0000 \|  0\.0150  0\.0172  0\.00007 -0\.0819 -0\.0266      0    904 
+ 6  0\.0247  0\.0802  0\.0273  0\.00009  0\.0000 \|  0\.0150  0\.0176  0\.00009 -0\.1300 -0\.0672      0    934 
+ 7  0\.0248  0\.0695  0\.0315  0\.00026  0\.0000 \|  0\.0150  0\.0156  0\.00002 -0\.0149  0\.0281    -14    336 
+
+\|--------from prf   scan------------------- Adaptation Results ------from prf   scan---------------flat scan\|-----------BleedOff-----------\|
+     Bnd            \|  Pce Wr       WR             \|      Prf                         vrn         \|  Flt    \|   fbk       cur       adp    \|
+    CrnErr ok CrnVrn\| GapErr ok CrnVrn ok CrnOff ok\|ErrRM ok  ErrRS ok  VrnRM   VrnRS upd  Err  ok\|  Vrn upd\| ofs   cnt   ofs     ofs   cnt\|
+ #   \[mm\]      \[mm\] \|    \[mm\]      \[mm\]      \[mm\]  \| \[mm\]      \[mm\]      \[mm\]    \[mm\]    \[ kN \]   \|\[ kN \]   \|\[ kN \]      \[ kN \]  \[ kN \]    \|
+ 1  0\.0000 T -0\.0200 -0\.5100 T -0\.0200 T -0\.3388 T  0\.0000 F  0\.0000 F  0\.0000  0\.0000 F      0 F      0 F      0\.0   0     0\.0     0\.0   0 
+ 2  0\.0000 T -0\.0200 -0\.5100 T -0\.0200 T -0\.2166 T  0\.0000 F  0\.0000 F  0\.0000  0\.0000 F      0 F      0 F      0\.0   0     0\.0     0\.0   0 
+ 3  0\.0000 T -0\.0200 -0\.3365 T -0\.0200 T  0\.0211 T  0\.0000 F  0\.0000 F  0\.0000  0\.0000 F      0 F      0 F     40\.0   2    20\.0    20\.0   3 
+ 4  0\.0000 T -0\.0200 -0\.2258 T -0\.0200 T  0\.0140 T  0\.0000 F  0\.0000 F  0\.0000  0\.0000 F      0 F      0 F      0\.0   0     0\.0     0\.0   0 
+ 5  0\.0000 T -0\.0200 -0\.2190 T -0\.0200 T  0\.0128 T  0\.0000 F  0\.0000 F  0\.0000  0\.0000 F      0 F      0 F      0\.0   0     0\.0     0\.0   0 
+ 6  0\.0000 T -0\.0300 -0\.1664 T -0\.0300 T  0\.0097 T  0\.0000 F  0\.0000 F  0\.0000  0\.0000 F      0 F      0 F      0\.0   0     0\.0     0\.0   0 
+ 7 -0\.0048 T -0\.0300 -0\.2393 T -0\.0300 T  0\.0045 T  0\.0000 T  0\.0494 T  0\.0050  0\.0000 T    -88 T     -4 T      0\.0   0    -9\.7     0\.0   0 
+
+!----------- Work Roll Status -\|
+
+ Roll Object:f1_stdrollpr       TOP ROLL                                                    BOTTOM ROLL
+   Seg  Pos        Surf Temp           Wear          Expansion      Profile          Surf Temp     Wear        Expansion
+     0   -950\.0 mm    25\.0 C     0\.000000 mm     0\.000000 mm I                  I     25\.0 C     0\.000000 mm     0\.000000 mm
+     1   -925\.0 mm    25\.0 C     0\.000000 mm     0\.011303 mm I                  I     25\.0 C     0\.000000 mm     0\.003083 mm
+     2   -900\.0 mm    25\.0 C     0\.000000 mm     0\.014416 mm  I                 I     25\.0 C     0\.000000 mm     0\.003956 mm
+     3   -875\.0 mm    25\.0 C     0\.000000 mm     0\.017528 mm  I                 I     25\.0 C     0\.000000 mm     0\.004830 mm
+     4   -850\.0 mm    25\.0 C     0\.000000 mm     0\.020641 mm  I                 I     25\.0 C     0\.000000 mm     0\.005703 mm
+     5   -825\.0 mm    25\.0 C     0\.000000 mm     0\.025185 mm   I                I     25\.0 C     0\.000000 mm     0\.007070 mm
+     6   -800\.0 mm    25\.0 C     0\.000000 mm     0\.030002 mm   I                I     25\.0 C     0\.000000 mm     0\.008532 mm
+     7   -775\.0 mm    25\.0 C     0\.000000 mm     0\.034819 mm   I                I     25\.0 C     0\.000000 mm     0\.009993 mm
+     8   -750\.0 mm    25\.0 C    -0\.002853 mm     0\.040026 mm    I               I     25\.0 C     0\.000000 mm     0\.011532 mm
+     9   -725\.0 mm    25\.1 C    -0\.008459 mm     0\.049728 mm    I              I      25\.0 C     0\.000000 mm     0\.013967 mm
+    10   -700\.0 mm    25\.1 C    -0\.010817 mm     0\.059429 mm    I              I      25\.0 C     0\.000000 mm     0\.016401 mm
+    11   -675\.0 mm    25\.2 C    -0\.012064 mm     0\.069130 mm     I             I      25\.0 C    -0\.001342 mm     0\.018836 mm
+    12   -650\.0 mm    25\.4 C    -0\.015098 mm     0\.078967 mm      I            I      25\.0 C    -0\.002217 mm     0\.021740 mm
+    13   -625\.0 mm    25\.9 C    -0\.017634 mm     0\.089090 mm      I            I      25\.0 C    -0\.002770 mm     0\.025642 mm
+    14   -600\.0 mm    26\.4 C    -0\.022855 mm     0\.099214 mm       I          I       25\.0 C    -0\.002770 mm     0\.029544 mm
+    15   -575\.0 mm    26\.9 C    -0\.022855 mm     0\.109337 mm        I         I       25\.0 C    -0\.002770 mm     0\.033446 mm
+    16   -550\.0 mm    27\.1 C    -0\.022855 mm     0\.116366 mm        I         I       25\.0 C    -0\.004017 mm     0\.038577 mm
+    17   -525\.0 mm    27\.2 C    -0\.022855 mm     0\.120962 mm         I       I        25\.0 C    -0\.005792 mm     0\.044673 mm
+    18   -500\.0 mm    27\.2 C    -0\.022855 mm     0\.125559 mm         I       I        25\.0 C    -0\.009762 mm     0\.050770 mm
+    19   -475\.0 mm    27\.2 C    -0\.022855 mm     0\.130156 mm         I       I        25\.0 C    -0\.014834 mm     0\.056866 mm
+    20   -450\.0 mm    27\.2 C    -0\.022855 mm     0\.132789 mm          I     I         25\.1 C    -0\.014834 mm     0\.066755 mm
+    21   -425\.0 mm    27\.2 C    -0\.022855 mm     0\.134930 mm          I     I         25\.2 C    -0\.016074 mm     0\.077592 mm
+    22   -400\.0 mm    27\.3 C    -0\.022855 mm     0\.137072 mm          I    I          25\.3 C    -0\.019132 mm     0\.088429 mm
+    23   -375\.0 mm    27\.3 C    -0\.022855 mm     0\.139166 mm          I    I          25\.5 C    -0\.022853 mm     0\.099193 mm
+    24   -350\.0 mm    27\.3 C    -0\.022855 mm     0\.140119 mm          I   I           26\.0 C    -0\.022853 mm     0\.108183 mm
+    25   -325\.0 mm    27\.3 C    -0\.022855 mm     0\.141073 mm          I  I            26\.5 C    -0\.022853 mm     0\.117174 mm
+    26   -300\.0 mm    27\.3 C    -0\.022855 mm     0\.142027 mm          I I             27\.0 C    -0\.022853 mm     0\.126164 mm
+    27   -275\.0 mm    27\.3 C    -0\.022855 mm     0\.142825 mm          I I             27\.3 C    -0\.022853 mm     0\.133489 mm
+    28   -250\.0 mm    27\.3 C    -0\.022855 mm     0\.143222 mm          I I             27\.4 C    -0\.022853 mm     0\.136533 mm
+    29   -225\.0 mm    27\.3 C    -0\.022855 mm     0\.143620 mm          II              27\.4 C    -0\.022853 mm     0\.139577 mm
+    30   -200\.0 mm    27\.3 C    -0\.022855 mm     0\.144018 mm          II              27\.4 C    -0\.022853 mm     0\.142621 mm
+    31   -175\.0 mm    27\.3 C    -0\.022855 mm     0\.144283 mm          II              27\.4 C    -0\.022853 mm     0\.144604 mm
+    32   -150\.0 mm    27\.3 C    -0\.022855 mm     0\.144426 mm          II              27\.4 C    -0\.022853 mm     0\.145608 mm
+    33   -125\.0 mm    27\.3 C    -0\.022855 mm     0\.144569 mm          II              27\.4 C    -0\.022853 mm     0\.146613 mm
+    34   -100\.0 mm    27\.3 C    -0\.022855 mm     0\.144712 mm          II              27\.4 C    -0\.022853 mm     0\.147617 mm
+    35    -75\.0 mm    27\.3 C    -0\.022855 mm     0\.144645 mm          II              27\.4 C    -0\.022853 mm     0\.148494 mm
+    36    -50\.0 mm    27\.3 C    -0\.022855 mm     0\.144510 mm          II              27\.4 C    -0\.022853 mm     0\.149331 mm
+    37    -25\.0 mm    27\.3 C    -0\.022855 mm     0\.144375 mm          II              27\.4 C    -0\.022853 mm     0\.150168 mm
+ C  38      0\.0 mm    27\.3 C    -0\.022855 mm     0\.144241 mm          II              27\.4 C    -0\.022853 mm     0\.151005 mm
+    39     25\.0 mm    27\.3 C    -0\.022855 mm     0\.143872 mm          II              27\.4 C    -0\.022853 mm     0\.150942 mm
+    40     50\.0 mm    27\.3 C    -0\.022855 mm     0\.143503 mm          II              27\.4 C    -0\.022853 mm     0\.150880 mm
+    41     75\.0 mm    27\.3 C    -0\.022855 mm     0\.143134 mm          II              27\.4 C    -0\.022853 mm     0\.150817 mm
+    42    100\.0 mm    27\.3 C    -0\.022855 mm     0\.142590 mm          II              27\.4 C    -0\.022853 mm     0\.150725 mm
+    43    125\.0 mm    27\.3 C    -0\.022855 mm     0\.141490 mm          II              27\.4 C    -0\.022853 mm     0\.150542 mm
+    44    150\.0 mm    27\.3 C    -0\.022855 mm     0\.140391 mm          II              27\.4 C    -0\.022853 mm     0\.150359 mm
+    45    175\.0 mm    27\.3 C    -0\.022855 mm     0\.139291 mm          II              27\.4 C    -0\.022853 mm     0\.150176 mm
+    46    200\.0 mm    27\.2 C    -0\.022855 mm     0\.137294 mm          II              27\.4 C    -0\.022853 mm     0\.149879 mm
+    47    225\.0 mm    27\.2 C    -0\.022855 mm     0\.134325 mm          II              27\.4 C    -0\.022853 mm     0\.149458 mm
+    48    250\.0 mm    27\.2 C    -0\.022855 mm     0\.131356 mm         I I              27\.4 C    -0\.022853 mm     0\.149038 mm
+    49    275\.0 mm    27\.2 C    -0\.022855 mm     0\.128387 mm         I I              27\.4 C    -0\.022853 mm     0\.148617 mm
+    50    300\.0 mm    26\.8 C    -0\.022855 mm     0\.121317 mm         I I              27\.4 C    -0\.022853 mm     0\.147789 mm
+    51    325\.0 mm    26\.3 C    -0\.022855 mm     0\.112651 mm        I  I              27\.4 C    -0\.022853 mm     0\.146801 mm
+    52    350\.0 mm    25\.8 C    -0\.022855 mm     0\.103986 mm       I   I              27\.4 C    -0\.022853 mm     0\.145814 mm
+    53    375\.0 mm    25\.4 C    -0\.022855 mm     0\.095321 mm      I    I              27\.4 C    -0\.022853 mm     0\.144826 mm
+    54    400\.0 mm    25\.3 C    -0\.019133 mm     0\.084978 mm      I    I              27\.4 C    -0\.022853 mm     0\.142641 mm
+    55    425\.0 mm    25\.2 C    -0\.016075 mm     0\.074566 mm     I     I              27\.4 C    -0\.022853 mm     0\.140407 mm
+    56    450\.0 mm    25\.1 C    -0\.014835 mm     0\.064153 mm     I      I             27\.4 C    -0\.022853 mm     0\.138172 mm
+    57    475\.0 mm    25\.0 C    -0\.014835 mm     0\.054651 mm    I       I             27\.4 C    -0\.022853 mm     0\.135429 mm
+    58    500\.0 mm    25\.0 C    -0\.009762 mm     0\.048791 mm    I       I             27\.4 C    -0\.022853 mm     0\.130652 mm
+    59    525\.0 mm    25\.0 C    -0\.005792 mm     0\.042931 mm    I       I             27\.3 C    -0\.022853 mm     0\.125876 mm
+    60    550\.0 mm    25\.0 C    -0\.004017 mm     0\.037070 mm   I         I            27\.3 C    -0\.022853 mm     0\.121099 mm
+    61    575\.0 mm    25\.0 C    -0\.002770 mm     0\.032138 mm   I         I            27\.1 C    -0\.022853 mm     0\.113797 mm
+    62    600\.0 mm    25\.0 C    -0\.002770 mm     0\.028386 mm   I          I           26\.5 C    -0\.022853 mm     0\.103280 mm
+    63    625\.0 mm    25\.0 C    -0\.002770 mm     0\.024635 mm  I            I          26\.0 C    -0\.017633 mm     0\.092763 mm
+    64    650\.0 mm    25\.0 C    -0\.002218 mm     0\.020883 mm  I            I          25\.5 C    -0\.015097 mm     0\.082246 mm
+    65    675\.0 mm    25\.0 C    -0\.001342 mm     0\.018091 mm  I             I         25\.3 C    -0\.012064 mm     0\.071997 mm
+    66    700\.0 mm    25\.0 C     0\.000000 mm     0\.015750 mm  I              I        25\.2 C    -0\.010817 mm     0\.061874 mm
+    67    725\.0 mm    25\.0 C     0\.000000 mm     0\.013409 mm  I              I        25\.1 C    -0\.008459 mm     0\.051751 mm
+    68    750\.0 mm    25\.0 C     0\.000000 mm     0\.011069 mm I               I        25\.0 C    -0\.002853 mm     0\.041628 mm
+    69    775\.0 mm    25\.0 C     0\.000000 mm     0\.009589 mm I                I       25\.0 C     0\.000000 mm     0\.036211 mm
+    70    800\.0 mm    25\.0 C     0\.000000 mm     0\.008184 mm I                I       25\.0 C     0\.000000 mm     0\.031204 mm
+    71    825\.0 mm    25\.0 C     0\.000000 mm     0\.006779 mm I                I       25\.0 C     0\.000000 mm     0\.026198 mm
+    72    850\.0 mm    25\.0 C     0\.000000 mm     0\.005465 mm I                 I      25\.0 C     0\.000000 mm     0\.021474 mm
+    73    875\.0 mm    25\.0 C     0\.000000 mm     0\.004630 mm I                 I      25\.0 C     0\.000000 mm     0\.018237 mm
+    74    900\.0 mm    25\.0 C     0\.000000 mm     0\.003794 mm I                 I      25\.0 C     0\.000000 mm     0\.015000 mm
+    75    925\.0 mm    25\.0 C     0\.000000 mm     0\.002959 mm I                  I     25\.0 C     0\.000000 mm     0\.011763 mm
+    76    950\.0 mm    25\.0 C     0\.000000 mm     0\.000000 mm I                  I     25\.0 C     0\.000000 mm     0\.000000 mm
+
+
+ Roll Object:f2_stdrollpr       TOP ROLL                                                    BOTTOM ROLL
+   Seg  Pos        Surf Temp           Wear          Expansion      Profile          Surf Temp     Wear        Expansion
+     0   -950\.0 mm    25\.0 C     0\.000000 mm     0\.000000 mm I                  I     25\.0 C     0\.000000 mm     0\.000000 mm
+     1   -925\.0 mm    25\.0 C     0\.000000 mm     0\.009327 mm I                  I     25\.0 C     0\.000000 mm     0\.004886 mm
+     2   -900\.0 mm    25\.0 C     0\.000000 mm     0\.012102 mm I                  I     25\.0 C     0\.000000 mm     0\.006295 mm
+     3   -875\.0 mm    25\.0 C     0\.000000 mm     0\.014877 mm  I                 I     25\.0 C     0\.000000 mm     0\.007705 mm
+     4   -850\.0 mm    25\.0 C     0\.000000 mm     0\.017651 mm  I                 I     25\.0 C     0\.000000 mm     0\.009115 mm
+     5   -825\.0 mm    25\.0 C     0\.000000 mm     0\.021994 mm  I                 I     25\.0 C     0\.000000 mm     0\.011367 mm
+     6   -800\.0 mm    25\.0 C     0\.000000 mm     0\.026635 mm  I                 I     25\.0 C     0\.000000 mm     0\.013780 mm
+     7   -775\.0 mm    25\.0 C     0\.000000 mm     0\.031276 mm   I               I      25\.0 C     0\.000000 mm     0\.016192 mm
+     8   -750\.0 mm    25\.0 C     0\.000000 mm     0\.036230 mm   I               I      25\.0 C     0\.000000 mm     0\.018727 mm
+     9   -725\.0 mm    25\.0 C     0\.000000 mm     0\.044786 mm    I              I      25\.0 C     0\.000000 mm     0\.022669 mm
+    10   -700\.0 mm    25\.0 C    -0\.002106 mm     0\.053341 mm    I              I      25\.0 C     0\.000000 mm     0\.026611 mm
+    11   -675\.0 mm    25\.0 C    -0\.013584 mm     0\.061896 mm    I              I      25\.0 C    -0\.001953 mm     0\.030553 mm
+    12   -650\.0 mm    25\.5 C    -0\.017897 mm     0\.073054 mm    I             I       25\.0 C    -0\.004261 mm     0\.035152 mm
+    13   -625\.0 mm    27\.2 C    -0\.024802 mm     0\.089743 mm     I            I       25\.0 C    -0\.004261 mm     0\.041149 mm
+    14   -600\.0 mm    28\.9 C    -0\.033513 mm     0\.106431 mm      I           I       25\.0 C    -0\.006529 mm     0\.047147 mm
+    15   -575\.0 mm    30\.5 C    -0\.036888 mm     0\.123119 mm       I          I       25\.0 C    -0\.010922 mm     0\.053144 mm
+    16   -550\.0 mm    31\.3 C    -0\.041465 mm     0\.134562 mm       I          I       25\.0 C    -0\.019278 mm     0\.060710 mm
+    17   -525\.0 mm    31\.3 C    -0\.041465 mm     0\.141883 mm        I         I       25\.0 C    -0\.026647 mm     0\.069508 mm
+    18   -500\.0 mm    31\.4 C    -0\.041465 mm     0\.149204 mm        I        I        25\.0 C    -0\.026647 mm     0\.078306 mm
+    19   -475\.0 mm    31\.4 C    -0\.041465 mm     0\.156526 mm         I      I         25\.0 C    -0\.026647 mm     0\.087104 mm
+    20   -450\.0 mm    31\.5 C    -0\.041465 mm     0\.160870 mm         I      I         26\.2 C    -0\.032326 mm     0\.102234 mm
+    21   -425\.0 mm    31\.5 C    -0\.041465 mm     0\.164470 mm         I     I          27\.7 C    -0\.036876 mm     0\.118947 mm
+    22   -400\.0 mm    31\.5 C    -0\.041465 mm     0\.168070 mm          I   I           29\.2 C    -0\.041463 mm     0\.135660 mm
+    23   -375\.0 mm    31\.5 C    -0\.041465 mm     0\.171592 mm          I  I            30\.7 C    -0\.041463 mm     0\.151973 mm
+    24   -350\.0 mm    31\.5 C    -0\.041465 mm     0\.173230 mm          I  I            31\.0 C    -0\.041463 mm     0\.158681 mm
+    25   -325\.0 mm    31\.5 C    -0\.041465 mm     0\.174868 mm          I I             31\.3 C    -0\.041463 mm     0\.165390 mm
+    26   -300\.0 mm    31\.5 C    -0\.041465 mm     0\.176506 mm          I I             31\.6 C    -0\.041463 mm     0\.172098 mm
+    27   -275\.0 mm    31\.5 C    -0\.041465 mm     0\.177874 mm          II              31\.8 C    -0\.041463 mm     0\.177554 mm
+    28   -250\.0 mm    31\.5 C    -0\.041465 mm     0\.178549 mm          II              31\.8 C    -0\.041463 mm     0\.179788 mm
+    29   -225\.0 mm    31\.5 C    -0\.041465 mm     0\.179223 mm          II              31\.9 C    -0\.041463 mm     0\.182022 mm
+    30   -200\.0 mm    31\.5 C    -0\.041465 mm     0\.179898 mm          II              31\.9 C    -0\.041463 mm     0\.184256 mm
+    31   -175\.0 mm    31\.5 C    -0\.041465 mm     0\.180348 mm          II              31\.9 C    -0\.041463 mm     0\.185699 mm
+    32   -150\.0 mm    31\.5 C    -0\.041465 mm     0\.180590 mm          II              31\.9 C    -0\.041463 mm     0\.186410 mm
+    33   -125\.0 mm    31\.5 C    -0\.041465 mm     0\.180833 mm          II              31\.9 C    -0\.041463 mm     0\.187121 mm
+    34   -100\.0 mm    31\.5 C    -0\.041465 mm     0\.181076 mm          II              31\.9 C    -0\.041463 mm     0\.187832 mm
+    35    -75\.0 mm    31\.5 C    -0\.041465 mm     0\.181190 mm          II              31\.9 C    -0\.041463 mm     0\.188336 mm
+    36    -50\.0 mm    31\.5 C    -0\.041465 mm     0\.181264 mm          II              31\.9 C    -0\.041463 mm     0\.188774 mm
+    37    -25\.0 mm    31\.5 C    -0\.041465 mm     0\.181337 mm          II              31\.9 C    -0\.041463 mm     0\.189212 mm
+ C  38      0\.0 mm    31\.5 C    -0\.041465 mm     0\.181411 mm          II              31\.9 C    -0\.041463 mm     0\.189650 mm
+    39     25\.0 mm    31\.5 C    -0\.041465 mm     0\.181174 mm          II              31\.9 C    -0\.041463 mm     0\.189558 mm
+    40     50\.0 mm    31\.5 C    -0\.041465 mm     0\.180937 mm          II              31\.9 C    -0\.041463 mm     0\.189465 mm
+    41     75\.0 mm    31\.5 C    -0\.041465 mm     0\.180700 mm          II              31\.9 C    -0\.041463 mm     0\.189373 mm
+    42    100\.0 mm    31\.5 C    -0\.041465 mm     0\.180339 mm          II              31\.9 C    -0\.041463 mm     0\.189233 mm
+    43    125\.0 mm    31\.5 C    -0\.041465 mm     0\.179582 mm          II              31\.9 C    -0\.041463 mm     0\.188944 mm
+    44    150\.0 mm    31\.5 C    -0\.041465 mm     0\.178826 mm          II              31\.9 C    -0\.041463 mm     0\.188654 mm
+    45    175\.0 mm    31\.5 C    -0\.041465 mm     0\.178070 mm          II              31\.9 C    -0\.041463 mm     0\.188365 mm
+    46    200\.0 mm    31\.5 C    -0\.041465 mm     0\.176636 mm          II              31\.9 C    -0\.041463 mm     0\.187867 mm
+    47    225\.0 mm    31\.5 C    -0\.041465 mm     0\.174470 mm          II              31\.9 C    -0\.041463 mm     0\.187143 mm
+    48    250\.0 mm    31\.5 C    -0\.041465 mm     0\.172303 mm          II              31\.9 C    -0\.041463 mm     0\.186418 mm
+    49    275\.0 mm    31\.5 C    -0\.041465 mm     0\.170137 mm          II              31\.9 C    -0\.041463 mm     0\.185694 mm
+    50    300\.0 mm    31\.2 C    -0\.041465 mm     0\.164889 mm         I I              31\.9 C    -0\.041463 mm     0\.184260 mm
+    51    325\.0 mm    31\.0 C    -0\.041465 mm     0\.158443 mm         I I              31\.9 C    -0\.041463 mm     0\.182551 mm
+    52    350\.0 mm    30\.7 C    -0\.041465 mm     0\.151997 mm        I  I              31\.9 C    -0\.041463 mm     0\.180842 mm
+    53    375\.0 mm    30\.4 C    -0\.041465 mm     0\.145552 mm        I  I              31\.9 C    -0\.041463 mm     0\.179132 mm
+    54    400\.0 mm    29\.0 C    -0\.041465 mm     0\.129926 mm       I   I              31\.8 C    -0\.041463 mm     0\.175457 mm
+    55    425\.0 mm    27\.6 C    -0\.036877 mm     0\.113917 mm      I     I             31\.8 C    -0\.041463 mm     0\.171701 mm
+    56    450\.0 mm    26\.1 C    -0\.032327 mm     0\.097909 mm     I      I             31\.8 C    -0\.041463 mm     0\.167944 mm
+    57    475\.0 mm    25\.0 C    -0\.026647 mm     0\.083417 mm     I      I             31\.8 C    -0\.041463 mm     0\.163410 mm
+    58    500\.0 mm    25\.0 C    -0\.026647 mm     0\.074991 mm    I        I            31\.7 C    -0\.041463 mm     0\.155769 mm
+    59    525\.0 mm    25\.0 C    -0\.026647 mm     0\.066565 mm   I         I            31\.7 C    -0\.041463 mm     0\.148127 mm
+    60    550\.0 mm    25\.0 C    -0\.019278 mm     0\.058139 mm   I          I           31\.6 C    -0\.041463 mm     0\.140486 mm
+    61    575\.0 mm    25\.0 C    -0\.010922 mm     0\.050892 mm   I          I           30\.8 C    -0\.036887 mm     0\.128548 mm
+    62    600\.0 mm    25\.0 C    -0\.006529 mm     0\.045146 mm   I           I          29\.1 C    -0\.033513 mm     0\.111142 mm
+    63    625\.0 mm    25\.0 C    -0\.004261 mm     0\.039401 mm   I            I         27\.3 C    -0\.024801 mm     0\.093736 mm
+    64    650\.0 mm    25\.0 C    -0\.004261 mm     0\.033655 mm   I             I        25\.6 C    -0\.017896 mm     0\.076330 mm
+    65    675\.0 mm    25\.0 C    -0\.001953 mm     0\.029251 mm  I              I        25\.0 C    -0\.013584 mm     0\.064675 mm
+    66    700\.0 mm    25\.0 C     0\.000000 mm     0\.025479 mm  I              I        25\.0 C    -0\.002106 mm     0\.055726 mm
+    67    725\.0 mm    25\.0 C     0\.000000 mm     0\.021706 mm  I              I        25\.0 C     0\.000000 mm     0\.046777 mm
+    68    750\.0 mm    25\.0 C     0\.000000 mm     0\.017934 mm  I               I       25\.0 C     0\.000000 mm     0\.037828 mm
+    69    775\.0 mm    25\.0 C     0\.000000 mm     0\.015507 mm  I               I       25\.0 C     0\.000000 mm     0\.032656 mm
+    70    800\.0 mm    25\.0 C     0\.000000 mm     0\.013198 mm I                 I      25\.0 C     0\.000000 mm     0\.027813 mm
+    71    825\.0 mm    25\.0 C     0\.000000 mm     0\.010889 mm I                 I      25\.0 C     0\.000000 mm     0\.022970 mm
+    72    850\.0 mm    25\.0 C     0\.000000 mm     0\.008733 mm I                 I      25\.0 C     0\.000000 mm     0\.018439 mm
+    73    875\.0 mm    25\.0 C     0\.000000 mm     0\.007381 mm I                 I      25\.0 C     0\.000000 mm     0\.015544 mm
+    74    900\.0 mm    25\.0 C     0\.000000 mm     0\.006030 mm I                  I     25\.0 C     0\.000000 mm     0\.012650 mm
+    75    925\.0 mm    25\.0 C     0\.000000 mm     0\.004678 mm I                  I     25\.0 C     0\.000000 mm     0\.009755 mm
+    76    950\.0 mm    25\.0 C     0\.000000 mm     0\.000000 mm I                  I     25\.0 C     0\.000000 mm     0\.000000 mm
+
+
+ Roll Object:f3_stdrollpr       TOP ROLL                                                    BOTTOM ROLL
+   Seg  Pos        Surf Temp           Wear          Expansion      Profile          Surf Temp     Wear        Expansion
+     0   -950\.0 mm    25\.0 C     0\.000000 mm     0\.000000 mm I                  I     25\.0 C     0\.000000 mm     0\.000000 mm
+     1   -925\.0 mm    25\.0 C     0\.000000 mm     0\.006196 mm I                  I     25\.0 C     0\.000000 mm     0\.004227 mm
+     2   -900\.0 mm    25\.0 C     0\.000000 mm     0\.008054 mm  I                 I     25\.0 C     0\.000000 mm     0\.005475 mm
+     3   -875\.0 mm    25\.0 C     0\.000000 mm     0\.009912 mm  I                 I     25\.0 C     0\.000000 mm     0\.006724 mm
+     4   -850\.0 mm    25\.0 C     0\.000000 mm     0\.011769 mm  I                 I     25\.0 C     0\.000000 mm     0\.007972 mm
+     5   -825\.0 mm    25\.0 C     0\.000000 mm     0\.014842 mm  I                 I     25\.0 C     0\.000000 mm     0\.009945 mm
+     6   -800\.0 mm    25\.0 C     0\.000000 mm     0\.018147 mm   I               I      25\.0 C     0\.000000 mm     0\.012055 mm
+     7   -775\.0 mm    25\.0 C     0\.000000 mm     0\.021451 mm   I               I      25\.0 C     0\.000000 mm     0\.014165 mm
+     8   -750\.0 mm    25\.1 C     0\.000000 mm     0\.025028 mm    I              I      25\.0 C     0\.000000 mm     0\.016373 mm
+     9   -725\.0 mm    25\.8 C     0\.000000 mm     0\.031743 mm     I             I      25\.0 C     0\.000000 mm     0\.019710 mm
+    10   -700\.0 mm    26\.6 C     0\.000000 mm     0\.038457 mm      I           I       25\.0 C     0\.000000 mm     0\.023047 mm
+    11   -675\.0 mm    27\.4 C    -0\.003006 mm     0\.045172 mm      I           I       25\.0 C     0\.000000 mm     0\.026384 mm
+    12   -650\.0 mm    29\.6 C    -0\.027010 mm     0\.053890 mm    I             I       25\.0 C    -0\.001281 mm     0\.030198 mm
+    13   -625\.0 mm    34\.7 C    -0\.039423 mm     0\.066865 mm    I             I       25\.0 C    -0\.005693 mm     0\.035027 mm
+    14   -600\.0 mm    39\.8 C    -0\.050829 mm     0\.079841 mm    I             I       25\.0 C    -0\.012128 mm     0\.039856 mm
+    15   -575\.0 mm    44\.9 C    -0\.058909 mm     0\.092816 mm     I            I       25\.0 C    -0\.021236 mm     0\.044684 mm
+    16   -550\.0 mm    47\.1 C    -0\.058909 mm     0\.101426 mm      I            I      25\.0 C    -0\.037801 mm     0\.050713 mm
+    17   -525\.0 mm    47\.2 C    -0\.058909 mm     0\.106606 mm       I           I      25\.0 C    -0\.037801 mm     0\.057685 mm
+    18   -500\.0 mm    47\.2 C    -0\.058909 mm     0\.111786 mm        I         I       25\.0 C    -0\.037801 mm     0\.064657 mm
+    19   -475\.0 mm    47\.3 C    -0\.058909 mm     0\.116966 mm        I        I        25\.0 C    -0\.037801 mm     0\.071629 mm
+    20   -450\.0 mm    47\.3 C    -0\.058909 mm     0\.120008 mm         I      I         29\.5 C    -0\.041041 mm     0\.084903 mm
+    21   -425\.0 mm    47\.3 C    -0\.058909 mm     0\.122516 mm         I      I         35\.1 C    -0\.049135 mm     0\.099752 mm
+    22   -400\.0 mm    47\.3 C    -0\.058909 mm     0\.125023 mm         I     I          40\.7 C    -0\.058905 mm     0\.114601 mm
+    23   -375\.0 mm    47\.3 C    -0\.058909 mm     0\.127476 mm          I   I           46\.1 C    -0\.058905 mm     0\.129115 mm
+    24   -350\.0 mm    47\.3 C    -0\.058909 mm     0\.128620 mm          I  I            47\.4 C    -0\.058905 mm     0\.135562 mm
+    25   -325\.0 mm    47\.3 C    -0\.058909 mm     0\.129765 mm          I  I            48\.6 C    -0\.058905 mm     0\.142009 mm
+    26   -300\.0 mm    47\.3 C    -0\.058909 mm     0\.130909 mm          I I             49\.9 C    -0\.058905 mm     0\.148456 mm
+    27   -275\.0 mm    47\.3 C    -0\.058909 mm     0\.131869 mm          I I             50\.8 C    -0\.058905 mm     0\.153655 mm
+    28   -250\.0 mm    47\.3 C    -0\.058909 mm     0\.132353 mm          II              50\.8 C    -0\.058905 mm     0\.155643 mm
+    29   -225\.0 mm    47\.3 C    -0\.058909 mm     0\.132837 mm          II              50\.8 C    -0\.058905 mm     0\.157631 mm
+    30   -200\.0 mm    47\.3 C    -0\.058909 mm     0\.133321 mm          II              50\.8 C    -0\.058905 mm     0\.159619 mm
+    31   -175\.0 mm    47\.3 C    -0\.058909 mm     0\.133645 mm          II              50\.8 C    -0\.058905 mm     0\.160893 mm
+    32   -150\.0 mm    47\.3 C    -0\.058909 mm     0\.133820 mm          II              50\.8 C    -0\.058905 mm     0\.161506 mm
+    33   -125\.0 mm    47\.3 C    -0\.058909 mm     0\.133996 mm          II              50\.8 C    -0\.058905 mm     0\.162119 mm
+    34   -100\.0 mm    47\.3 C    -0\.058909 mm     0\.134171 mm          II              50\.8 C    -0\.058905 mm     0\.162732 mm
+    35    -75\.0 mm    47\.3 C    -0\.058909 mm     0\.134253 mm          II              50\.8 C    -0\.058905 mm     0\.163153 mm
+    36    -50\.0 mm    47\.3 C    -0\.058909 mm     0\.134306 mm          II              50\.8 C    -0\.058905 mm     0\.163513 mm
+    37    -25\.0 mm    47\.3 C    -0\.058909 mm     0\.134358 mm          II              50\.8 C    -0\.058905 mm     0\.163874 mm
+ C  38      0\.0 mm    47\.3 C    -0\.058909 mm     0\.134411 mm          II              50\.8 C    -0\.058905 mm     0\.164234 mm
+    39     25\.0 mm    47\.3 C    -0\.058909 mm     0\.134246 mm          II              50\.8 C    -0\.058905 mm     0\.164147 mm
+    40     50\.0 mm    47\.3 C    -0\.058909 mm     0\.134080 mm          II              50\.8 C    -0\.058905 mm     0\.164061 mm
+    41     75\.0 mm    47\.3 C    -0\.058909 mm     0\.133915 mm          II              50\.8 C    -0\.058905 mm     0\.163975 mm
+    42    100\.0 mm    47\.3 C    -0\.058909 mm     0\.133657 mm          II              50\.8 C    -0\.058905 mm     0\.163852 mm
+    43    125\.0 mm    47\.3 C    -0\.058909 mm     0\.133105 mm          II              50\.8 C    -0\.058905 mm     0\.163614 mm
+    44    150\.0 mm    47\.3 C    -0\.058909 mm     0\.132553 mm          II              50\.8 C    -0\.058905 mm     0\.163376 mm
+    45    175\.0 mm    47\.3 C    -0\.058909 mm     0\.132001 mm          II              50\.8 C    -0\.058905 mm     0\.163138 mm
+    46    200\.0 mm    47\.3 C    -0\.058909 mm     0\.130919 mm          II              50\.8 C    -0\.058905 mm     0\.162725 mm
+    47    225\.0 mm    47\.3 C    -0\.058909 mm     0\.129261 mm          II              50\.8 C    -0\.058905 mm     0\.162122 mm
+    48    250\.0 mm    47\.3 C    -0\.058909 mm     0\.127603 mm          II              50\.8 C    -0\.058905 mm     0\.161519 mm
+    49    275\.0 mm    47\.3 C    -0\.058909 mm     0\.125945 mm         I I              50\.8 C    -0\.058905 mm     0\.160917 mm
+    50    300\.0 mm    46\.5 C    -0\.058909 mm     0\.121654 mm         I I              50\.8 C    -0\.058905 mm     0\.159744 mm
+    51    325\.0 mm    45\.4 C    -0\.058909 mm     0\.116338 mm        I  I              50\.8 C    -0\.058905 mm     0\.158351 mm
+    52    350\.0 mm    44\.3 C    -0\.058909 mm     0\.111022 mm       I   I              50\.8 C    -0\.058905 mm     0\.156957 mm
+    53    375\.0 mm    43\.2 C    -0\.058909 mm     0\.105707 mm       I   I              50\.8 C    -0\.058905 mm     0\.155563 mm
+    54    400\.0 mm    38\.5 C    -0\.058909 mm     0\.093817 mm     I      I             50\.8 C    -0\.058905 mm     0\.152574 mm
+    55    425\.0 mm    33\.7 C    -0\.049138 mm     0\.081652 mm     I      I             50\.8 C    -0\.058905 mm     0\.149518 mm
+    56    450\.0 mm    28\.9 C    -0\.041044 mm     0\.069488 mm    I       I             50\.8 C    -0\.058905 mm     0\.146463 mm
+    57    475\.0 mm    25\.0 C    -0\.037803 mm     0\.058614 mm   I         I            50\.7 C    -0\.058905 mm     0\.142755 mm
+    58    500\.0 mm    25\.0 C    -0\.037803 mm     0\.052904 mm   I         I            50\.7 C    -0\.058905 mm     0\.136443 mm
+    59    525\.0 mm    25\.0 C    -0\.037803 mm     0\.047193 mm  I           I           50\.7 C    -0\.058905 mm     0\.130130 mm
+    60    550\.0 mm    25\.0 C    -0\.037803 mm     0\.041483 mm I            I           50\.6 C    -0\.058905 mm     0\.123817 mm
+    61    575\.0 mm    25\.0 C    -0\.021238 mm     0\.036547 mm   I           I          48\.0 C    -0\.058905 mm     0\.113347 mm
+    62    600\.0 mm    25\.0 C    -0\.012129 mm     0\.032598 mm   I            I         42\.2 C    -0\.050826 mm     0\.097584 mm
+    63    625\.0 mm    25\.0 C    -0\.005693 mm     0\.028648 mm    I           I         36\.4 C    -0\.039421 mm     0\.081822 mm
+    64    650\.0 mm    25\.0 C    -0\.001281 mm     0\.024699 mm    I            I        30\.5 C    -0\.027008 mm     0\.066060 mm
+    65    675\.0 mm    25\.0 C     0\.000000 mm     0\.021575 mm   I            I         28\.0 C    -0\.003006 mm     0\.055402 mm
+    66    700\.0 mm    25\.0 C     0\.000000 mm     0\.018839 mm   I            I         27\.0 C     0\.000000 mm     0\.047146 mm
+    67    725\.0 mm    25\.0 C     0\.000000 mm     0\.016104 mm   I             I        26\.1 C     0\.000000 mm     0\.038891 mm
+    68    750\.0 mm    25\.0 C     0\.000000 mm     0\.013368 mm  I               I       25\.1 C     0\.000000 mm     0\.030635 mm
+    69    775\.0 mm    25\.0 C     0\.000000 mm     0\.011561 mm  I               I       25\.0 C     0\.000000 mm     0\.026264 mm
+    70    800\.0 mm    25\.0 C     0\.000000 mm     0\.009835 mm  I               I       25\.0 C     0\.000000 mm     0\.022230 mm
+    71    825\.0 mm    25\.0 C     0\.000000 mm     0\.008109 mm  I                I      25\.0 C     0\.000000 mm     0\.018196 mm
+    72    850\.0 mm    25\.0 C     0\.000000 mm     0\.006497 mm I                 I      25\.0 C     0\.000000 mm     0\.014441 mm
+    73    875\.0 mm    25\.0 C     0\.000000 mm     0\.005485 mm I                 I      25\.0 C     0\.000000 mm     0\.012150 mm
+    74    900\.0 mm    25\.0 C     0\.000000 mm     0\.004473 mm I                  I     25\.0 C     0\.000000 mm     0\.009858 mm
+    75    925\.0 mm    25\.0 C     0\.000000 mm     0\.003461 mm I                  I     25\.0 C     0\.000000 mm     0\.007567 mm
+    76    950\.0 mm    25\.0 C     0\.000000 mm     0\.000000 mm I                  I     25\.0 C     0\.000000 mm     0\.000000 mm
+
+
+ Roll Object:f4_stdrollpr       TOP ROLL                                                    BOTTOM ROLL
+   Seg  Pos        Surf Temp           Wear          Expansion      Profile          Surf Temp     Wear        Expansion
+     0   -950\.0 mm    25\.0 C     0\.000000 mm     0\.000000 mm I                  I     25\.0 C     0\.000000 mm     0\.000000 mm
+     1   -925\.0 mm    25\.0 C     0\.000000 mm     0\.007177 mm I                  I     25\.0 C     0\.000000 mm     0\.004765 mm
+     2   -900\.0 mm    25\.0 C     0\.000000 mm     0\.009320 mm  I                 I     25\.0 C     0\.000000 mm     0\.006168 mm
+     3   -875\.0 mm    25\.0 C     0\.000000 mm     0\.011464 mm  I                 I     25\.0 C     0\.000000 mm     0\.007572 mm
+     4   -850\.0 mm    25\.0 C     0\.000000 mm     0\.013607 mm  I                 I     25\.0 C     0\.000000 mm     0\.008976 mm
+     5   -825\.0 mm    25\.0 C     0\.000000 mm     0\.017010 mm  I                I      25\.0 C     0\.000000 mm     0\.011241 mm
+     6   -800\.0 mm    25\.0 C     0\.000000 mm     0\.020652 mm   I               I      25\.0 C     0\.000000 mm     0\.013671 mm
+     7   -775\.0 mm    25\.0 C     0\.000000 mm     0\.024295 mm   I               I      25\.0 C     0\.000000 mm     0\.016100 mm
+     8   -750\.0 mm    25\.0 C     0\.000000 mm     0\.028152 mm    I              I      25\.0 C     0\.000000 mm     0\.018650 mm
+     9   -725\.0 mm    25\.0 C     0\.000000 mm     0\.034484 mm    I             I       25\.0 C     0\.000000 mm     0\.022592 mm
+    10   -700\.0 mm    25\.0 C     0\.000000 mm     0\.040815 mm     I            I       25\.0 C     0\.000000 mm     0\.026534 mm
+    11   -675\.0 mm    25\.0 C     0\.000000 mm     0\.047147 mm      I          I        25\.0 C     0\.000000 mm     0\.030476 mm
+    12   -650\.0 mm    27\.1 C    -0\.029324 mm     0\.056420 mm   I             I        25\.0 C    -0\.001631 mm     0\.035066 mm
+    13   -625\.0 mm    33\.5 C    -0\.043293 mm     0\.071945 mm    I            I        25\.0 C    -0\.011226 mm     0\.041034 mm
+    14   -600\.0 mm    40\.0 C    -0\.049721 mm     0\.087471 mm     I            I       25\.0 C    -0\.019610 mm     0\.047002 mm
+    15   -575\.0 mm    46\.4 C    -0\.062582 mm     0\.102996 mm     I             I      25\.0 C    -0\.041719 mm     0\.052971 mm
+    16   -550\.0 mm    50\.1 C    -0\.073266 mm     0\.114814 mm     I             I      25\.7 C    -0\.049720 mm     0\.061036 mm
+    17   -525\.0 mm    51\.5 C    -0\.077507 mm     0\.123719 mm      I           I       27\.0 C    -0\.049720 mm     0\.070750 mm
+    18   -500\.0 mm    53\.0 C    -0\.077507 mm     0\.132624 mm       I         I        28\.2 C    -0\.049720 mm     0\.080464 mm
+    19   -475\.0 mm    54\.4 C    -0\.077507 mm     0\.141529 mm       I         I        29\.5 C    -0\.058260 mm     0\.090177 mm
+    20   -450\.0 mm    54\.7 C    -0\.077507 mm     0\.146525 mm        I        I        35\.2 C    -0\.066810 mm     0\.104070 mm
+    21   -425\.0 mm    54\.7 C    -0\.077507 mm     0\.150545 mm        I       I         42\.0 C    -0\.077506 mm     0\.119006 mm
+    22   -400\.0 mm    54\.8 C    -0\.077507 mm     0\.154565 mm         I     I          48\.8 C    -0\.077506 mm     0\.133943 mm
+    23   -375\.0 mm    54\.8 C    -0\.077507 mm     0\.158496 mm         I   I            55\.4 C    -0\.077506 mm     0\.148460 mm
+    24   -350\.0 mm    54\.8 C    -0\.077507 mm     0\.160292 mm          I  I            55\.5 C    -0\.077506 mm     0\.152904 mm
+    25   -325\.0 mm    54\.8 C    -0\.077507 mm     0\.162089 mm          I I             55\.5 C    -0\.077506 mm     0\.157348 mm
+    26   -300\.0 mm    54\.8 C    -0\.077507 mm     0\.163885 mm          I I             55\.6 C    -0\.077506 mm     0\.161793 mm
+    27   -275\.0 mm    54\.8 C    -0\.077507 mm     0\.165384 mm          II              55\.6 C    -0\.077506 mm     0\.165438 mm
+    28   -250\.0 mm    54\.8 C    -0\.077507 mm     0\.166120 mm          II              55\.6 C    -0\.077506 mm     0\.167031 mm
+    29   -225\.0 mm    54\.8 C    -0\.077507 mm     0\.166856 mm          II              55\.6 C    -0\.077506 mm     0\.168623 mm
+    30   -200\.0 mm    54\.8 C    -0\.077507 mm     0\.167592 mm          II              55\.6 C    -0\.077506 mm     0\.170216 mm
+    31   -175\.0 mm    54\.8 C    -0\.077507 mm     0\.168076 mm          II              55\.6 C    -0\.077506 mm     0\.171243 mm
+    32   -150\.0 mm    54\.8 C    -0\.077507 mm     0\.168327 mm          II              55\.6 C    -0\.077506 mm     0\.171749 mm
+    33   -125\.0 mm    54\.8 C    -0\.077507 mm     0\.168579 mm          II              55\.6 C    -0\.077506 mm     0\.172254 mm
+    34   -100\.0 mm    54\.8 C    -0\.077507 mm     0\.168831 mm          II              55\.6 C    -0\.077506 mm     0\.172760 mm
+    35    -75\.0 mm    54\.8 C    -0\.077507 mm     0\.168971 mm          II              55\.6 C    -0\.077506 mm     0\.173110 mm
+    36    -50\.0 mm    54\.8 C    -0\.077507 mm     0\.169075 mm          II              55\.6 C    -0\.077506 mm     0\.173410 mm
+    37    -25\.0 mm    54\.8 C    -0\.077507 mm     0\.169180 mm          II              55\.6 C    -0\.077506 mm     0\.173710 mm
+ C  38      0\.0 mm    54\.8 C    -0\.077507 mm     0\.169285 mm          II              55\.6 C    -0\.077506 mm     0\.174010 mm
+    39     25\.0 mm    54\.8 C    -0\.077507 mm     0\.169116 mm          II              55\.6 C    -0\.077506 mm     0\.173916 mm
+    40     50\.0 mm    54\.8 C    -0\.077507 mm     0\.168947 mm          II              55\.6 C    -0\.077506 mm     0\.173821 mm
+    41     75\.0 mm    54\.8 C    -0\.077507 mm     0\.168778 mm          II              55\.6 C    -0\.077506 mm     0\.173726 mm
+    42    100\.0 mm    54\.8 C    -0\.077507 mm     0\.168517 mm          II              55\.6 C    -0\.077506 mm     0\.173582 mm
+    43    125\.0 mm    54\.8 C    -0\.077507 mm     0\.167966 mm          II              55\.6 C    -0\.077506 mm     0\.173282 mm
+    44    150\.0 mm    54\.8 C    -0\.077507 mm     0\.167414 mm          II              55\.6 C    -0\.077506 mm     0\.172982 mm
+    45    175\.0 mm    54\.8 C    -0\.077507 mm     0\.166863 mm          II              55\.6 C    -0\.077506 mm     0\.172681 mm
+    46    200\.0 mm    54\.8 C    -0\.077507 mm     0\.165825 mm          II              55\.6 C    -0\.077506 mm     0\.172159 mm
+    47    225\.0 mm    54\.8 C    -0\.077507 mm     0\.164261 mm          II              55\.6 C    -0\.077506 mm     0\.171396 mm
+    48    250\.0 mm    54\.8 C    -0\.077507 mm     0\.162696 mm          II              55\.6 C    -0\.077506 mm     0\.170634 mm
+    49    275\.0 mm    54\.8 C    -0\.077507 mm     0\.161132 mm          II              55\.6 C    -0\.077506 mm     0\.169871 mm
+    50    300\.0 mm    54\.7 C    -0\.077507 mm     0\.157572 mm         I I              55\.6 C    -0\.077506 mm     0\.168325 mm
+    51    325\.0 mm    54\.7 C    -0\.077507 mm     0\.153238 mm         I I              55\.6 C    -0\.077506 mm     0\.166475 mm
+    52    350\.0 mm    54\.6 C    -0\.077507 mm     0\.148903 mm        I  I              55\.6 C    -0\.077506 mm     0\.164624 mm
+    53    375\.0 mm    54\.6 C    -0\.077507 mm     0\.144568 mm        I   I             55\.6 C    -0\.077506 mm     0\.162774 mm
+    54    400\.0 mm    48\.2 C    -0\.077507 mm     0\.130412 mm      I     I             55\.6 C    -0\.077506 mm     0\.158736 mm
+    55    425\.0 mm    41\.5 C    -0\.077507 mm     0\.115847 mm     I       I            55\.6 C    -0\.077506 mm     0\.154608 mm
+    56    450\.0 mm    34\.9 C    -0\.066811 mm     0\.101282 mm    I        I            55\.5 C    -0\.077506 mm     0\.150479 mm
+    57    475\.0 mm    29\.3 C    -0\.058261 mm     0\.087740 mm    I        I            55\.2 C    -0\.077506 mm     0\.145349 mm
+    58    500\.0 mm    28\.1 C    -0\.049721 mm     0\.078290 mm    I         I           53\.7 C    -0\.077506 mm     0\.136209 mm
+    59    525\.0 mm    26\.9 C    -0\.049721 mm     0\.068839 mm   I           I          52\.3 C    -0\.077506 mm     0\.127069 mm
+    60    550\.0 mm    25\.7 C    -0\.049721 mm     0\.059389 mm  I             I         50\.8 C    -0\.073264 mm     0\.117929 mm
+    61    575\.0 mm    25\.0 C    -0\.041719 mm     0\.051540 mm  I             I         47\.0 C    -0\.062580 mm     0\.105797 mm
+    62    600\.0 mm    25\.0 C    -0\.019611 mm     0\.045731 mm   I            I         40\.4 C    -0\.049720 mm     0\.089858 mm
+    63    625\.0 mm    25\.0 C    -0\.011226 mm     0\.039922 mm    I            I        33\.8 C    -0\.043293 mm     0\.073918 mm
+    64    650\.0 mm    25\.0 C    -0\.001631 mm     0\.034113 mm    I             I       27\.1 C    -0\.029324 mm     0\.057979 mm
+    65    675\.0 mm    25\.0 C     0\.000000 mm     0\.029647 mm    I          I          25\.0 C     0\.000000 mm     0\.048453 mm
+    66    700\.0 mm    25\.0 C     0\.000000 mm     0\.025812 mm   I            I         25\.0 C     0\.000000 mm     0\.041944 mm
+    67    725\.0 mm    25\.0 C     0\.000000 mm     0\.021978 mm   I             I        25\.0 C     0\.000000 mm     0\.035436 mm
+    68    750\.0 mm    25\.0 C     0\.000000 mm     0\.018143 mm  I               I       25\.0 C     0\.000000 mm     0\.028928 mm
+    69    775\.0 mm    25\.0 C     0\.000000 mm     0\.015666 mm  I               I       25\.0 C     0\.000000 mm     0\.024964 mm
+    70    800\.0 mm    25\.0 C     0\.000000 mm     0\.013306 mm  I               I       25\.0 C     0\.000000 mm     0\.021221 mm
+    71    825\.0 mm    25\.0 C     0\.000000 mm     0\.010946 mm  I                I      25\.0 C     0\.000000 mm     0\.017479 mm
+    72    850\.0 mm    25\.0 C     0\.000000 mm     0\.008745 mm I                 I      25\.0 C     0\.000000 mm     0\.013982 mm
+    73    875\.0 mm    25\.0 C     0\.000000 mm     0\.007373 mm I                 I      25\.0 C     0\.000000 mm     0\.011777 mm
+    74    900\.0 mm    25\.0 C     0\.000000 mm     0\.006002 mm I                  I     25\.0 C     0\.000000 mm     0\.009572 mm
+    75    925\.0 mm    25\.0 C     0\.000000 mm     0\.004630 mm I                  I     25\.0 C     0\.000000 mm     0\.007367 mm
+    76    950\.0 mm    25\.0 C     0\.000000 mm     0\.000000 mm I                  I     25\.0 C     0\.000000 mm     0\.000000 mm
+
+
+ Roll Object:f5_stdrollpr       TOP ROLL                                                    BOTTOM ROLL
+   Seg  Pos        Surf Temp           Wear          Expansion      Profile          Surf Temp     Wear        Expansion
+     0   -950\.0 mm    25\.0 C     0\.000000 mm     0\.000000 mm I                  I     25\.0 C     0\.000000 mm     0\.000000 mm
+     1   -925\.0 mm    25\.0 C     0\.000000 mm     0\.004931 mm I                  I     25\.0 C     0\.000000 mm     0\.005291 mm
+     2   -900\.0 mm    25\.0 C     0\.000000 mm     0\.006306 mm  I                I      25\.0 C     0\.000000 mm     0\.006785 mm
+     3   -875\.0 mm    25\.0 C     0\.000000 mm     0\.007682 mm  I                I      25\.0 C     0\.000000 mm     0\.008279 mm
+     4   -850\.0 mm    25\.0 C     0\.000000 mm     0\.009057 mm  I                I      25\.0 C     0\.000000 mm     0\.009774 mm
+     5   -825\.0 mm    25\.0 C     0\.000000 mm     0\.011095 mm  I                I      25\.0 C     0\.000000 mm     0\.012173 mm
+     6   -800\.0 mm    25\.0 C     0\.000000 mm     0\.013260 mm   I              I       25\.0 C     0\.000000 mm     0\.014744 mm
+     7   -775\.0 mm    25\.0 C     0\.000000 mm     0\.015425 mm   I              I       25\.0 C     0\.000000 mm     0\.017316 mm
+     8   -750\.0 mm    25\.0 C     0\.000000 mm     0\.017725 mm   I              I       25\.0 C    -0\.005262 mm     0\.020011 mm
+     9   -725\.0 mm    25\.0 C    -0\.005192 mm     0\.021574 mm   I              I       25\.0 C    -0\.008787 mm     0\.024121 mm
+    10   -700\.0 mm    25\.0 C    -0\.008678 mm     0\.025423 mm   I             I        25\.0 C    -0\.008787 mm     0\.028232 mm
+    11   -675\.0 mm    25\.0 C    -0\.012126 mm     0\.029272 mm   I              I       25\.0 C    -0\.015493 mm     0\.032343 mm
+    12   -650\.0 mm    25\.3 C    -0\.017310 mm     0\.035097 mm   I              I       25\.0 C    -0\.020663 mm     0\.036922 mm
+    13   -625\.0 mm    26\.3 C    -0\.021679 mm     0\.045122 mm    I              I      25\.0 C    -0\.030597 mm     0\.042497 mm
+    14   -600\.0 mm    27\.4 C    -0\.028475 mm     0\.055148 mm     I             I      25\.0 C    -0\.036014 mm     0\.048072 mm
+    15   -575\.0 mm    28\.4 C    -0\.032000 mm     0\.065173 mm      I           I       25\.0 C    -0\.039570 mm     0\.053647 mm
+    16   -550\.0 mm    28\.8 C    -0\.037244 mm     0\.073044 mm      I           I       25\.0 C    -0\.044846 mm     0\.059656 mm
+    17   -525\.0 mm    28\.9 C    -0\.042629 mm     0\.079222 mm      I           I       25\.0 C    -0\.050110 mm     0\.066007 mm
+    18   -500\.0 mm    28\.9 C    -0\.046156 mm     0\.085400 mm       I         I        25\.0 C    -0\.053568 mm     0\.072357 mm
+    19   -475\.0 mm    29\.0 C    -0\.055005 mm     0\.091578 mm      I          I        25\.0 C    -0\.058843 mm     0\.078707 mm
+    20   -450\.0 mm    29\.0 C    -0\.055005 mm     0\.096443 mm       I        I         25\.7 C    -0\.060625 mm     0\.087315 mm
+    21   -425\.0 mm    29\.0 C    -0\.056822 mm     0\.100979 mm        I      I          26\.6 C    -0\.062403 mm     0\.096488 mm
+    22   -400\.0 mm    29\.0 C    -0\.062348 mm     0\.105515 mm       I      I           27\.5 C    -0\.066022 mm     0\.105661 mm
+    23   -375\.0 mm    29\.0 C    -0\.066037 mm     0\.109979 mm        I    I            28\.4 C    -0\.066022 mm     0\.114572 mm
+    24   -350\.0 mm    29\.0 C    -0\.066037 mm     0\.112717 mm        I   I             28\.6 C    -0\.066022 mm     0\.117204 mm
+    25   -325\.0 mm    29\.0 C    -0\.066037 mm     0\.115455 mm        I   I             28\.8 C    -0\.066022 mm     0\.119837 mm
+    26   -300\.0 mm    29\.0 C    -0\.066037 mm     0\.118192 mm         I I              28\.9 C    -0\.066022 mm     0\.122469 mm
+    27   -275\.0 mm    29\.0 C    -0\.066037 mm     0\.120535 mm         I I              29\.1 C    -0\.066022 mm     0\.124581 mm
+    28   -250\.0 mm    29\.0 C    -0\.066037 mm     0\.121860 mm         I I              29\.1 C    -0\.066022 mm     0\.125355 mm
+    29   -225\.0 mm    29\.0 C    -0\.066037 mm     0\.123186 mm          II              29\.1 C    -0\.066022 mm     0\.126130 mm
+    30   -200\.0 mm    29\.0 C    -0\.066037 mm     0\.124511 mm          II              29\.1 C    -0\.066022 mm     0\.126904 mm
+    31   -175\.0 mm    29\.0 C    -0\.066037 mm     0\.125402 mm          II              29\.1 C    -0\.066022 mm     0\.127410 mm
+    32   -150\.0 mm    29\.0 C    -0\.066037 mm     0\.125892 mm          II              29\.1 C    -0\.066022 mm     0\.127668 mm
+    33   -125\.0 mm    29\.0 C    -0\.066037 mm     0\.126382 mm          II              29\.1 C    -0\.066022 mm     0\.127926 mm
+    34   -100\.0 mm    29\.0 C    -0\.066037 mm     0\.126872 mm          II              29\.1 C    -0\.066022 mm     0\.128185 mm
+    35    -75\.0 mm    29\.0 C    -0\.066037 mm     0\.127273 mm          II              29\.1 C    -0\.066022 mm     0\.128293 mm
+    36    -50\.0 mm    29\.0 C    -0\.066037 mm     0\.127646 mm          II              29\.1 C    -0\.066022 mm     0\.128354 mm
+    37    -25\.0 mm    29\.0 C    -0\.066037 mm     0\.128019 mm          II              29\.1 C    -0\.066022 mm     0\.128415 mm
+ C  38      0\.0 mm    29\.0 C    -0\.066037 mm     0\.128391 mm          II              29\.1 C    -0\.066022 mm     0\.128476 mm
+    39     25\.0 mm    29\.0 C    -0\.066037 mm     0\.128292 mm          II              29\.1 C    -0\.066022 mm     0\.128292 mm
+    40     50\.0 mm    29\.0 C    -0\.066037 mm     0\.128193 mm          II              29\.1 C    -0\.066022 mm     0\.128108 mm
+    41     75\.0 mm    29\.0 C    -0\.066037 mm     0\.128093 mm          II              29\.1 C    -0\.066022 mm     0\.127923 mm
+    42    100\.0 mm    29\.0 C    -0\.066037 mm     0\.127949 mm          II              29\.1 C    -0\.066022 mm     0\.127649 mm
+    43    125\.0 mm    29\.0 C    -0\.066037 mm     0\.127660 mm          II              29\.1 C    -0\.066022 mm     0\.127090 mm
+    44    150\.0 mm    29\.0 C    -0\.066037 mm     0\.127371 mm          II              29\.1 C    -0\.066022 mm     0\.126531 mm
+    45    175\.0 mm    29\.0 C    -0\.066037 mm     0\.127082 mm          II              29\.1 C    -0\.066022 mm     0\.125971 mm
+    46    200\.0 mm    29\.0 C    -0\.066037 mm     0\.126556 mm          II              29\.1 C    -0\.066022 mm     0\.125032 mm
+    47    225\.0 mm    29\.0 C    -0\.066037 mm     0\.125773 mm          II              29\.1 C    -0\.066022 mm     0\.123681 mm
+    48    250\.0 mm    29\.0 C    -0\.066037 mm     0\.124990 mm          II              29\.1 C    -0\.066022 mm     0\.122330 mm
+    49    275\.0 mm    29\.0 C    -0\.066037 mm     0\.124208 mm          I I             29\.1 C    -0\.066022 mm     0\.120978 mm
+    50    300\.0 mm    28\.9 C    -0\.066037 mm     0\.122097 mm         I  I             29\.1 C    -0\.066022 mm     0\.118620 mm
+    51    325\.0 mm    28\.7 C    -0\.066037 mm     0\.119470 mm         I   I            29\.0 C    -0\.066022 mm     0\.115869 mm
+    52    350\.0 mm    28\.6 C    -0\.066037 mm     0\.116844 mm         I   I            29\.0 C    -0\.066022 mm     0\.113119 mm
+    53    375\.0 mm    28\.4 C    -0\.066037 mm     0\.114217 mm        I    I            29\.0 C    -0\.066022 mm     0\.110368 mm
+    54    400\.0 mm    27\.5 C    -0\.066037 mm     0\.105331 mm       I      I           29\.0 C    -0\.062334 mm     0\.105888 mm
+    55    425\.0 mm    26\.6 C    -0\.062418 mm     0\.096184 mm      I      I            29\.0 C    -0\.056809 mm     0\.101335 mm
+    56    450\.0 mm    25\.7 C    -0\.060639 mm     0\.087037 mm     I        I           29\.0 C    -0\.054992 mm     0\.096783 mm
+    57    475\.0 mm    25\.0 C    -0\.058856 mm     0\.078453 mm    I          I          29\.0 C    -0\.054992 mm     0\.091900 mm
+    58    500\.0 mm    25\.0 C    -0\.053580 mm     0\.072121 mm   I          I           28\.9 C    -0\.046145 mm     0\.085696 mm
+    59    525\.0 mm    25\.0 C    -0\.050121 mm     0\.065789 mm   I           I          28\.9 C    -0\.042620 mm     0\.079493 mm
+    60    550\.0 mm    25\.0 C    -0\.044856 mm     0\.059457 mm   I           I          28\.9 C    -0\.037236 mm     0\.073289 mm
+    61    575\.0 mm    25\.0 C    -0\.039579 mm     0\.053465 mm   I           I          28\.4 C    -0\.031993 mm     0\.065390 mm
+    62    600\.0 mm    25\.0 C    -0\.036023 mm     0\.047903 mm  I             I         27\.4 C    -0\.028468 mm     0\.055332 mm
+    63    625\.0 mm    25\.0 C    -0\.030604 mm     0\.042342 mm  I              I        26\.3 C    -0\.021674 mm     0\.045275 mm
+    64    650\.0 mm    25\.0 C    -0\.020668 mm     0\.036781 mm   I              I       25\.3 C    -0\.017306 mm     0\.035218 mm
+    65    675\.0 mm    25\.0 C    -0\.015497 mm     0\.032216 mm   I              I       25\.0 C    -0\.012123 mm     0\.029377 mm
+    66    700\.0 mm    25\.0 C    -0\.008789 mm     0\.028120 mm    I             I       25\.0 C    -0\.008676 mm     0\.025519 mm
+    67    725\.0 mm    25\.0 C    -0\.008789 mm     0\.024024 mm   I              I       25\.0 C    -0\.005191 mm     0\.021661 mm
+    68    750\.0 mm    25\.0 C    -0\.005263 mm     0\.019928 mm   I              I       25\.0 C     0\.000000 mm     0\.017803 mm
+    69    775\.0 mm    25\.0 C     0\.000000 mm     0\.017241 mm   I              I       25\.0 C     0\.000000 mm     0\.015494 mm
+    70    800\.0 mm    25\.0 C     0\.000000 mm     0\.014678 mm   I              I       25\.0 C     0\.000000 mm     0\.013321 mm
+    71    825\.0 mm    25\.0 C     0\.000000 mm     0\.012114 mm  I                I      25\.0 C     0\.000000 mm     0\.011148 mm
+    72    850\.0 mm    25\.0 C     0\.000000 mm     0\.009723 mm  I                I      25\.0 C     0\.000000 mm     0\.009101 mm
+    73    875\.0 mm    25\.0 C     0\.000000 mm     0\.008241 mm  I                I      25\.0 C     0\.000000 mm     0\.007722 mm
+    74    900\.0 mm    25\.0 C     0\.000000 mm     0\.006758 mm  I                I      25\.0 C     0\.000000 mm     0\.006342 mm
+    75    925\.0 mm    25\.0 C     0\.000000 mm     0\.005276 mm I                  I     25\.0 C     0\.000000 mm     0\.004962 mm
+    76    950\.0 mm    25\.0 C     0\.000000 mm     0\.000000 mm I                  I     25\.0 C     0\.000000 mm     0\.000000 mm
+
+
+ Roll Object:f6_stdrollpr       TOP ROLL                                                    BOTTOM ROLL
+   Seg  Pos        Surf Temp           Wear          Expansion      Profile          Surf Temp     Wear        Expansion
+     0   -950\.0 mm    25\.0 C     0\.000000 mm     0\.000000 mm I                  I     25\.0 C     0\.000000 mm     0\.000000 mm
+     1   -925\.0 mm    25\.0 C     0\.000000 mm     0\.004673 mm I                  I     25\.0 C     0\.000000 mm     0\.004435 mm
+     2   -900\.0 mm    25\.0 C     0\.000000 mm     0\.005950 mm  I                I      25\.0 C     0\.000000 mm     0\.005617 mm
+     3   -875\.0 mm    25\.0 C     0\.000000 mm     0\.007228 mm  I                I      25\.0 C     0\.000000 mm     0\.006799 mm
+     4   -850\.0 mm    25\.0 C     0\.000000 mm     0\.008505 mm  I                I      25\.0 C     0\.000000 mm     0\.007981 mm
+     5   -825\.0 mm    25\.0 C     0\.000000 mm     0\.010627 mm  I                I      25\.0 C     0\.000000 mm     0\.009767 mm
+     6   -800\.0 mm    25\.0 C     0\.000000 mm     0\.012909 mm   I              I       25\.0 C     0\.000000 mm     0\.011668 mm
+     7   -775\.0 mm    25\.0 C     0\.000000 mm     0\.015191 mm   I              I       25\.0 C     0\.000000 mm     0\.013570 mm
+     8   -750\.0 mm    25\.0 C    -0\.005492 mm     0\.017588 mm   I              I       25\.1 C     0\.000000 mm     0\.015609 mm
+     9   -725\.0 mm    25\.0 C    -0\.009169 mm     0\.021300 mm   I              I       25\.7 C    -0\.005495 mm     0\.019232 mm
+    10   -700\.0 mm    25\.0 C    -0\.009169 mm     0\.025013 mm   I              I       26\.4 C    -0\.009218 mm     0\.022855 mm
+    11   -675\.0 mm    25\.0 C    -0\.016348 mm     0\.028725 mm   I              I       27\.1 C    -0\.012845 mm     0\.026477 mm
+    12   -650\.0 mm    25\.0 C    -0\.022304 mm     0\.032892 mm  I               I       30\.4 C    -0\.018820 mm     0\.032515 mm
+    13   -625\.0 mm    25\.0 C    -0\.032852 mm     0\.038027 mm I               I        39\.3 C    -0\.023502 mm     0\.043686 mm
+    14   -600\.0 mm    25\.0 C    -0\.038612 mm     0\.043161 mm I              I         48\.2 C    -0\.030647 mm     0\.054856 mm
+    15   -575\.0 mm    25\.0 C    -0\.042322 mm     0\.048296 mm  I            I          57\.1 C    -0\.034306 mm     0\.066027 mm
+    16   -550\.0 mm    25\.0 C    -0\.047814 mm     0\.053871 mm  I           I           61\.1 C    -0\.039772 mm     0\.074189 mm
+    17   -525\.0 mm    25\.0 C    -0\.053358 mm     0\.059794 mm  I           I           61\.1 C    -0\.045460 mm     0\.079987 mm
+    18   -500\.0 mm    25\.0 C    -0\.057014 mm     0\.065716 mm  I           I           61\.2 C    -0\.049085 mm     0\.085786 mm
+    19   -475\.0 mm    25\.0 C    -0\.062576 mm     0\.071639 mm  I            I          61\.2 C    -0\.058334 mm     0\.091584 mm
+    20   -450\.0 mm    31\.8 C    -0\.064409 mm     0\.081102 mm    I         I           61\.2 C    -0\.058334 mm     0\.096143 mm
+    21   -425\.0 mm    40\.4 C    -0\.066232 mm     0\.091450 mm     I       I            61\.2 C    -0\.060197 mm     0\.100391 mm
+    22   -400\.0 mm    49\.0 C    -0\.069937 mm     0\.101798 mm      I       I           61\.2 C    -0\.066058 mm     0\.104640 mm
+    23   -375\.0 mm    57\.2 C    -0\.069937 mm     0\.111839 mm        I     I           61\.2 C    -0\.069927 mm     0\.108820 mm
+    24   -350\.0 mm    58\.3 C    -0\.069937 mm     0\.114509 mm         I   I            61\.3 C    -0\.069927 mm     0\.111366 mm
+    25   -325\.0 mm    59\.4 C    -0\.069937 mm     0\.117179 mm         I   I            61\.3 C    -0\.069927 mm     0\.113911 mm
+    26   -300\.0 mm    60\.5 C    -0\.069937 mm     0\.119848 mm         I  I             61\.3 C    -0\.069927 mm     0\.116457 mm
+    27   -275\.0 mm    61\.2 C    -0\.069937 mm     0\.121965 mm          I I             61\.3 C    -0\.069927 mm     0\.118633 mm
+    28   -250\.0 mm    61\.2 C    -0\.069937 mm     0\.122660 mm          I I             61\.3 C    -0\.069927 mm     0\.119861 mm
+    29   -225\.0 mm    61\.3 C    -0\.069937 mm     0\.123355 mm          II              61\.3 C    -0\.069927 mm     0\.121089 mm
+    30   -200\.0 mm    61\.3 C    -0\.069937 mm     0\.124050 mm          II              61\.3 C    -0\.069927 mm     0\.122317 mm
+    31   -175\.0 mm    61\.3 C    -0\.069937 mm     0\.124503 mm          II              61\.3 C    -0\.069927 mm     0\.123141 mm
+    32   -150\.0 mm    61\.3 C    -0\.069937 mm     0\.124734 mm          II              61\.3 C    -0\.069927 mm     0\.123590 mm
+    33   -125\.0 mm    61\.3 C    -0\.069937 mm     0\.124964 mm          II              61\.3 C    -0\.069927 mm     0\.124039 mm
+    34   -100\.0 mm    61\.3 C    -0\.069937 mm     0\.125194 mm          II              61\.3 C    -0\.069927 mm     0\.124489 mm
+    35    -75\.0 mm    61\.3 C    -0\.069937 mm     0\.125295 mm          II              61\.3 C    -0\.069927 mm     0\.124847 mm
+    36    -50\.0 mm    61\.3 C    -0\.069937 mm     0\.125355 mm          II              61\.3 C    -0\.069927 mm     0\.125176 mm
+    37    -25\.0 mm    61\.3 C    -0\.069937 mm     0\.125415 mm          II              61\.3 C    -0\.069927 mm     0\.125505 mm
+ C  38      0\.0 mm    61\.3 C    -0\.069937 mm     0\.125475 mm          II              61\.3 C    -0\.069927 mm     0\.125833 mm
+    39     25\.0 mm    61\.3 C    -0\.069937 mm     0\.125304 mm          II              61\.3 C    -0\.069927 mm     0\.125746 mm
+    40     50\.0 mm    61\.3 C    -0\.069937 mm     0\.125133 mm          II              61\.3 C    -0\.069927 mm     0\.125659 mm
+    41     75\.0 mm    61\.3 C    -0\.069937 mm     0\.124962 mm          II              61\.3 C    -0\.069927 mm     0\.125572 mm
+    42    100\.0 mm    61\.3 C    -0\.069937 mm     0\.124710 mm          II              61\.3 C    -0\.069927 mm     0\.125443 mm
+    43    125\.0 mm    61\.3 C    -0\.069937 mm     0\.124199 mm          II              61\.3 C    -0\.069927 mm     0\.125184 mm
+    44    150\.0 mm    61\.3 C    -0\.069937 mm     0\.123689 mm          II              61\.3 C    -0\.069927 mm     0\.124924 mm
+    45    175\.0 mm    61\.3 C    -0\.069937 mm     0\.123178 mm          II              61\.3 C    -0\.069927 mm     0\.124664 mm
+    46    200\.0 mm    61\.3 C    -0\.069937 mm     0\.122319 mm          II              61\.3 C    -0\.069927 mm     0\.124190 mm
+    47    225\.0 mm    61\.3 C    -0\.069937 mm     0\.121084 mm          II              61\.3 C    -0\.069927 mm     0\.123484 mm
+    48    250\.0 mm    61\.3 C    -0\.069937 mm     0\.119848 mm         I I              61\.3 C    -0\.069927 mm     0\.122777 mm
+    49    275\.0 mm    61\.2 C    -0\.069937 mm     0\.118612 mm         I I              61\.3 C    -0\.069927 mm     0\.122070 mm
+    50    300\.0 mm    61\.2 C    -0\.069937 mm     0\.116425 mm         I  I             60\.5 C    -0\.069927 mm     0\.119943 mm
+    51    325\.0 mm    61\.2 C    -0\.069937 mm     0\.113868 mm        I   I             59\.4 C    -0\.069927 mm     0\.117264 mm
+    52    350\.0 mm    61\.2 C    -0\.069937 mm     0\.111310 mm        I    I            58\.3 C    -0\.069927 mm     0\.114584 mm
+    53    375\.0 mm    61\.2 C    -0\.069937 mm     0\.108753 mm       I     I            57\.3 C    -0\.069927 mm     0\.111905 mm
+    54    400\.0 mm    61\.2 C    -0\.066067 mm     0\.104581 mm       I       I          49\.0 C    -0\.069927 mm     0\.101865 mm
+    55    425\.0 mm    61\.2 C    -0\.060205 mm     0\.100341 mm        I       I         40\.4 C    -0\.066223 mm     0\.091519 mm
+    56    450\.0 mm    61\.2 C    -0\.058342 mm     0\.096101 mm       I         I        31\.9 C    -0\.064400 mm     0\.081174 mm
+    57    475\.0 mm    61\.2 C    -0\.058342 mm     0\.091548 mm      I            I      25\.0 C    -0\.062567 mm     0\.071711 mm
+    58    500\.0 mm    61\.1 C    -0\.049091 mm     0\.085744 mm       I           I      25\.0 C    -0\.057007 mm     0\.065782 mm
+    59    525\.0 mm    61\.1 C    -0\.045466 mm     0\.079940 mm       I           I      25\.0 C    -0\.053351 mm     0\.059852 mm
+    60    550\.0 mm    61\.1 C    -0\.039777 mm     0\.074136 mm       I           I      25\.0 C    -0\.047808 mm     0\.053923 mm
+    61    575\.0 mm    57\.1 C    -0\.034311 mm     0\.065974 mm      I            I      25\.0 C    -0\.042316 mm     0\.048342 mm
+    62    600\.0 mm    48\.2 C    -0\.030651 mm     0\.054810 mm     I              I     25\.0 C    -0\.038606 mm     0\.043204 mm
+    63    625\.0 mm    39\.3 C    -0\.023505 mm     0\.043647 mm    I               I     25\.0 C    -0\.032847 mm     0\.038066 mm
+    64    650\.0 mm    30\.4 C    -0\.018823 mm     0\.032484 mm   I               I      25\.0 C    -0\.022301 mm     0\.032928 mm
+    65    675\.0 mm    27\.1 C    -0\.012847 mm     0\.026447 mm   I              I       25\.0 C    -0\.016346 mm     0\.028754 mm
+    66    700\.0 mm    26\.4 C    -0\.009219 mm     0\.022823 mm   I              I       25\.0 C    -0\.009168 mm     0\.025034 mm
+    67    725\.0 mm    25\.7 C    -0\.005496 mm     0\.019199 mm   I              I       25\.0 C    -0\.009168 mm     0\.021314 mm
+    68    750\.0 mm    25\.1 C     0\.000000 mm     0\.015575 mm   I              I       25\.0 C    -0\.005492 mm     0\.017594 mm
+    69    775\.0 mm    25\.0 C     0\.000000 mm     0\.013543 mm   I              I       25\.0 C     0\.000000 mm     0\.015196 mm
+    70    800\.0 mm    25\.0 C     0\.000000 mm     0\.011651 mm   I              I       25\.0 C     0\.000000 mm     0\.012913 mm
+    71    825\.0 mm    25\.0 C     0\.000000 mm     0\.009758 mm  I                I      25\.0 C     0\.000000 mm     0\.010629 mm
+    72    850\.0 mm    25\.0 C     0\.000000 mm     0\.007979 mm  I                I      25\.0 C     0\.000000 mm     0\.008508 mm
+    73    875\.0 mm    25\.0 C     0\.000000 mm     0\.006797 mm  I                I      25\.0 C     0\.000000 mm     0\.007232 mm
+    74    900\.0 mm    25\.0 C     0\.000000 mm     0\.005616 mm  I                I      25\.0 C     0\.000000 mm     0\.005957 mm
+    75    925\.0 mm    25\.0 C     0\.000000 mm     0\.004434 mm I                  I     25\.0 C     0\.000000 mm     0\.004681 mm
+    76    950\.0 mm    25\.0 C     0\.000000 mm     0\.000000 mm I                  I     25\.0 C     0\.000000 mm     0\.000000 mm
+
+
+ Roll Object:f7_stdrollpr       TOP ROLL                                                    BOTTOM ROLL
+   Seg  Pos        Surf Temp           Wear          Expansion      Profile          Surf Temp     Wear        Expansion
+     0   -950\.0 mm    25\.0 C     0\.000000 mm     0\.000000 mm I                  I     25\.0 C     0\.000000 mm     0\.000000 mm
+     1   -925\.0 mm    25\.0 C     0\.000000 mm     0\.005351 mm I                  I     25\.0 C     0\.000000 mm     0\.005040 mm
+     2   -900\.0 mm    25\.0 C     0\.000000 mm     0\.006813 mm I                  I     25\.0 C     0\.000000 mm     0\.006395 mm
+     3   -875\.0 mm    25\.0 C     0\.000000 mm     0\.008274 mm I                  I     25\.0 C     0\.000000 mm     0\.007750 mm
+     4   -850\.0 mm    25\.0 C     0\.000000 mm     0\.009736 mm  I                I      25\.0 C     0\.000000 mm     0\.009105 mm
+     5   -825\.0 mm    25\.0 C     0\.000000 mm     0\.012134 mm  I                I      25\.0 C     0\.000000 mm     0\.011142 mm
+     6   -800\.0 mm    25\.0 C     0\.000000 mm     0\.014711 mm  I                I      25\.0 C     0\.000000 mm     0\.013310 mm
+     7   -775\.0 mm    25\.0 C     0\.000000 mm     0\.017287 mm   I               I      25\.0 C     0\.000000 mm     0\.015477 mm
+     8   -750\.0 mm    25\.0 C     0\.000000 mm     0\.019992 mm   I               I      25\.1 C    -0\.004469 mm     0\.017795 mm
+     9   -725\.0 mm    25\.0 C    -0\.004455 mm     0\.024172 mm   I               I      25\.8 C    -0\.007510 mm     0\.021847 mm
+    10   -700\.0 mm    25\.0 C    -0\.007353 mm     0\.028351 mm   I              I       26\.5 C    -0\.007510 mm     0\.025898 mm
+    11   -675\.0 mm    25\.0 C    -0\.010330 mm     0\.032530 mm   I              I       27\.2 C    -0\.013257 mm     0\.029950 mm
+    12   -650\.0 mm    25\.0 C    -0\.014461 mm     0\.037206 mm   I              I       30\.7 C    -0\.017369 mm     0\.036629 mm
+    13   -625\.0 mm    25\.0 C    -0\.019310 mm     0\.042937 mm   I              I       39\.9 C    -0\.026604 mm     0\.048894 mm
+    14   -600\.0 mm    25\.0 C    -0\.024809 mm     0\.048668 mm   I             I        49\.1 C    -0\.031032 mm     0\.061158 mm
+    15   -575\.0 mm    25\.0 C    -0\.027788 mm     0\.054398 mm    I           I         58\.4 C    -0\.034042 mm     0\.073422 mm
+    16   -550\.0 mm    25\.0 C    -0\.032166 mm     0\.060604 mm    I          I          62\.5 C    -0\.038685 mm     0\.082429 mm
+    17   -525\.0 mm    25\.0 C    -0\.036694 mm     0\.067183 mm    I          I          62\.5 C    -0\.041588 mm     0\.088877 mm
+    18   -500\.0 mm    25\.0 C    -0\.039749 mm     0\.073762 mm     I         I          62\.6 C    -0\.045983 mm     0\.095325 mm
+    19   -475\.0 mm    25\.0 C    -0\.047233 mm     0\.080340 mm    I         I           62\.6 C    -0\.050414 mm     0\.101773 mm
+    20   -450\.0 mm    32\.1 C    -0\.047233 mm     0\.090718 mm      I       I           62\.7 C    -0\.051862 mm     0\.106848 mm
+    21   -425\.0 mm    41\.0 C    -0\.048747 mm     0\.102045 mm       I      I           62\.7 C    -0\.053384 mm     0\.111581 mm
+    22   -400\.0 mm    49\.9 C    -0\.053158 mm     0\.113372 mm        I    I            62\.7 C    -0\.056198 mm     0\.116314 mm
+    23   -375\.0 mm    58\.4 C    -0\.056211 mm     0\.124365 mm         I   I            62\.7 C    -0\.056198 mm     0\.120972 mm
+    24   -350\.0 mm    59\.6 C    -0\.056211 mm     0\.127351 mm         I  I             62\.7 C    -0\.056198 mm     0\.123833 mm
+    25   -325\.0 mm    60\.7 C    -0\.056211 mm     0\.130336 mm         I  I             62\.7 C    -0\.056198 mm     0\.126695 mm
+    26   -300\.0 mm    61\.9 C    -0\.056211 mm     0\.133322 mm          I I             62\.7 C    -0\.056198 mm     0\.129556 mm
+    27   -275\.0 mm    62\.7 C    -0\.056211 mm     0\.135696 mm          II              62\.7 C    -0\.056198 mm     0\.132006 mm
+    28   -250\.0 mm    62\.7 C    -0\.056211 mm     0\.136498 mm          II              62\.7 C    -0\.056198 mm     0\.133399 mm
+    29   -225\.0 mm    62\.7 C    -0\.056211 mm     0\.137299 mm          II              62\.7 C    -0\.056198 mm     0\.134791 mm
+    30   -200\.0 mm    62\.7 C    -0\.056211 mm     0\.138101 mm          II              62\.7 C    -0\.056198 mm     0\.136184 mm
+    31   -175\.0 mm    62\.7 C    -0\.056211 mm     0\.138635 mm          II              62\.8 C    -0\.056198 mm     0\.137144 mm
+    32   -150\.0 mm    62\.7 C    -0\.056211 mm     0\.138921 mm          II              62\.8 C    -0\.056198 mm     0\.137705 mm
+    33   -125\.0 mm    62\.7 C    -0\.056211 mm     0\.139208 mm          II              62\.8 C    -0\.056198 mm     0\.138266 mm
+    34   -100\.0 mm    62\.7 C    -0\.056211 mm     0\.139494 mm          II              62\.8 C    -0\.056198 mm     0\.138826 mm
+    35    -75\.0 mm    62\.7 C    -0\.056211 mm     0\.139621 mm          II              62\.8 C    -0\.056198 mm     0\.139067 mm
+    36    -50\.0 mm    62\.7 C    -0\.056211 mm     0\.139697 mm          II              62\.8 C    -0\.056198 mm     0\.139207 mm
+    37    -25\.0 mm    62\.7 C    -0\.056211 mm     0\.139774 mm          II              62\.8 C    -0\.056198 mm     0\.139347 mm
+ C  38      0\.0 mm    62\.7 C    -0\.056211 mm     0\.139850 mm          II              62\.8 C    -0\.056198 mm     0\.139487 mm
+    39     25\.0 mm    62\.7 C    -0\.056211 mm     0\.139774 mm          II              62\.8 C    -0\.056198 mm     0\.139347 mm
+    40     50\.0 mm    62\.7 C    -0\.056211 mm     0\.139697 mm          II              62\.8 C    -0\.056198 mm     0\.139207 mm
+    41     75\.0 mm    62\.7 C    -0\.056211 mm     0\.139621 mm          II              62\.8 C    -0\.056198 mm     0\.139067 mm
+    42    100\.0 mm    62\.7 C    -0\.056211 mm     0\.139494 mm          II              62\.8 C    -0\.056198 mm     0\.138826 mm
+    43    125\.0 mm    62\.7 C    -0\.056211 mm     0\.139208 mm          II              62\.8 C    -0\.056198 mm     0\.138266 mm
+    44    150\.0 mm    62\.7 C    -0\.056211 mm     0\.138921 mm          II              62\.8 C    -0\.056198 mm     0\.137705 mm
+    45    175\.0 mm    62\.7 C    -0\.056211 mm     0\.138635 mm          II              62\.8 C    -0\.056198 mm     0\.137144 mm
+    46    200\.0 mm    62\.7 C    -0\.056211 mm     0\.138101 mm          II              62\.7 C    -0\.056198 mm     0\.136184 mm
+    47    225\.0 mm    62\.7 C    -0\.056211 mm     0\.137299 mm          II              62\.7 C    -0\.056198 mm     0\.134791 mm
+    48    250\.0 mm    62\.7 C    -0\.056211 mm     0\.136498 mm          II              62\.7 C    -0\.056198 mm     0\.133399 mm
+    49    275\.0 mm    62\.7 C    -0\.056211 mm     0\.135696 mm          II              62\.7 C    -0\.056198 mm     0\.132006 mm
+    50    300\.0 mm    61\.9 C    -0\.056211 mm     0\.133322 mm          I I             62\.7 C    -0\.056198 mm     0\.129556 mm
+    51    325\.0 mm    60\.7 C    -0\.056211 mm     0\.130336 mm         I  I             62\.7 C    -0\.056198 mm     0\.126695 mm
+    52    350\.0 mm    59\.6 C    -0\.056211 mm     0\.127351 mm         I  I             62\.7 C    -0\.056198 mm     0\.123833 mm
+    53    375\.0 mm    58\.4 C    -0\.056211 mm     0\.124365 mm         I   I            62\.7 C    -0\.056198 mm     0\.120972 mm
+    54    400\.0 mm    49\.9 C    -0\.056211 mm     0\.113372 mm       I     I            62\.7 C    -0\.053145 mm     0\.116314 mm
+    55    425\.0 mm    41\.0 C    -0\.053396 mm     0\.102045 mm      I      I            62\.7 C    -0\.048736 mm     0\.111581 mm
+    56    450\.0 mm    32\.1 C    -0\.051874 mm     0\.090718 mm     I       I            62\.7 C    -0\.047223 mm     0\.106848 mm
+    57    475\.0 mm    25\.0 C    -0\.050425 mm     0\.080340 mm    I         I           62\.6 C    -0\.047223 mm     0\.101773 mm
+    58    500\.0 mm    25\.0 C    -0\.045994 mm     0\.073762 mm    I         I           62\.6 C    -0\.039740 mm     0\.095325 mm
+    59    525\.0 mm    25\.0 C    -0\.041598 mm     0\.067183 mm    I         I           62\.5 C    -0\.036685 mm     0\.088877 mm
+    60    550\.0 mm    25\.0 C    -0\.038694 mm     0\.060604 mm   I          I           62\.5 C    -0\.032159 mm     0\.082429 mm
+    61    575\.0 mm    25\.0 C    -0\.034050 mm     0\.054398 mm   I           I          58\.4 C    -0\.027781 mm     0\.073422 mm
+    62    600\.0 mm    25\.0 C    -0\.031039 mm     0\.048668 mm   I            I         49\.1 C    -0\.024804 mm     0\.061158 mm
+    63    625\.0 mm    25\.0 C    -0\.026610 mm     0\.042937 mm  I              I        39\.9 C    -0\.019306 mm     0\.048894 mm
+    64    650\.0 mm    25\.0 C    -0\.017373 mm     0\.037206 mm   I              I       30\.7 C    -0\.014458 mm     0\.036629 mm
+    65    675\.0 mm    25\.0 C    -0\.013260 mm     0\.032530 mm   I              I       27\.2 C    -0\.010327 mm     0\.029950 mm
+    66    700\.0 mm    25\.0 C    -0\.007512 mm     0\.028351 mm   I              I       26\.5 C    -0\.007351 mm     0\.025898 mm
+    67    725\.0 mm    25\.0 C    -0\.007512 mm     0\.024172 mm  I               I       25\.8 C    -0\.004454 mm     0\.021847 mm
+    68    750\.0 mm    25\.0 C    -0\.004470 mm     0\.019992 mm  I               I       25\.1 C     0\.000000 mm     0\.017795 mm
+    69    775\.0 mm    25\.0 C     0\.000000 mm     0\.017287 mm   I               I      25\.0 C     0\.000000 mm     0\.015477 mm
+    70    800\.0 mm    25\.0 C     0\.000000 mm     0\.014711 mm  I                I      25\.0 C     0\.000000 mm     0\.013310 mm
+    71    825\.0 mm    25\.0 C     0\.000000 mm     0\.012134 mm  I                I      25\.0 C     0\.000000 mm     0\.011142 mm
+    72    850\.0 mm    25\.0 C     0\.000000 mm     0\.009736 mm  I                I      25\.0 C     0\.000000 mm     0\.009105 mm
+    73    875\.0 mm    25\.0 C     0\.000000 mm     0\.008274 mm I                  I     25\.0 C     0\.000000 mm     0\.007750 mm
+    74    900\.0 mm    25\.0 C     0\.000000 mm     0\.006813 mm I                  I     25\.0 C     0\.000000 mm     0\.006395 mm
+    75    925\.0 mm    25\.0 C     0\.000000 mm     0\.005351 mm I                  I     25\.0 C     0\.000000 mm     0\.005040 mm
+    76    950\.0 mm    25\.0 C     0\.000000 mm     0\.000000 mm I                  I     25\.0 C     0\.000000 mm     0\.000000 mm
+
+
