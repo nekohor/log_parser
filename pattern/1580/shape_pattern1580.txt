@@ -12,8 +12,8 @@ Vrn RS \[mm\]: (?P<Vrn_RS>.+?) PU    \[mm/mm\]: (?P<PerUnit>.+?) \| Achv       \
 Tol LO \[mm\]: (?P<Prf_LO>.+?) Ef PU \[mm/mm\]: (?P<EffPerU>.+?) \| Tol LO \[i-unt\]: (?P<Flt_LO>.+?) \|                     \| Width Idx  \[-\]: (?P<Width_Idx>.+?)
 Tol HI \[mm\]: (?P<Prf_HI>.+?) Achv      \[-\]: (?P<Archive>.+?) \| Tol HI \[i-unt\]: (?P<Flt_HI>.+?) \|                     \| Matl Code   \[-\]: (?P<Matl_Code>.+?)
 Op Ofs \[mm\]: (?P<PrfOOF>.+?) Dev Lim  \[mm\]: (?P<Dev_Lim>.+?) \| Op Ofs \[i-unt\]: (?P<FltOOF>.+?) \|                     \| Grade Cust  \[-\]: (?P<Grade_Cust>.+?)
-Raw Vrn RM \[mm\]: (?P<Raw_Vrn_RM>.+?)                     \| Raw Vrn RM 2 \[mm\]: (?P<Raw_Vrn_RM_2>.+?) 
-New Vrn RM \[mm\]: (?P<New_Vrn_RM>.+?)                     \| New Vrn RM 2 \[mm\]: (?P<Raw_Vrn_RM_2>.+?) 
+Raw Vrn RM \[mm\]: (?P<Raw_Vrn_RM>.{26,26}?) \| Raw Vrn RM 2 \[mm\]: (?P<Raw_Vrn_RM_2>.+?) 
+New Vrn RM \[mm\]: (?P<New_Vrn_RM>.{26,26}?) \| New Vrn RM 2 \[mm\]: (?P<Raw_Vrn_RM_2>.+?) 
 
 \|---------------------------------------- Profile Envelope \(1st Iter\.\) -----------------------------------------\|
       Ef PU Prf         PU Prf        UFD PU Prf      Frc PU Wid       Frc Bnd       Pce Wr Crn       Wr Br Crn
@@ -165,11 +165,11 @@ Std   CB       WE      CB    WE     CB       WE       CB       WE    Strn_Rlf In
 
  Shape Feedback Data 
 
- C25 Prf :  (?P<C25_Prf>.+?)  W25 Wed :  (?P<W25_Wed>.+?) Vld: (?P<C25_Vld>.+?) Hd  Sym: (?P<Hd_Sym>.+?) ASym: (?P<Hd_ASym>.+?) Vld: (?P<Hd_Vld>.+?)
- C40 Prf :  (?P<C40_Prf>.+?)  W40 Wed :  (?P<W40_Wed>.+?) Vld: (?P<C40_Vld>.+?) Mid Sym: (?P<Mid_Sym>.+?) ASym: (?P<Mid_ASym>.+?) Vld: (?P<Mid_Vld>.+?)
- C50 Prf :  (?P<C50_Prf>.+?)  W50 Wed :  (?P<W50_Wed>.+?)
- C100 Prf:  (?P<C100_Prf>.+?)  W100 Wed: (?P<W100_Wed>.+?) RMX_Prf: (?P<RMX_Prf>.+?) 
- ASFC dFB:  (?P<ASFC_dFB>.+?) 
+ C25 Prf : (?P<C25_Prf>.{8,8}?) W25 Wed : (?P<W25_Wed>.{8,8}?) Vld: (?P<C25_Vld>.+?) Hd  Sym: (?P<Hd_Sym>.{4,4}?) ASym: (?P<Hd_ASym>.{4,4}?) Vld: (?P<Hd_Vld>.+?)
+ C40 Prf : (?P<C40_Prf>.{8,8}?) W40 Wed : (?P<W40_Wed>.{8,8}?) Vld: (?P<C40_Vld>.+?) Mid Sym: (?P<Mid_Sym>.{4,4}?) ASym: (?P<Mid_ASym>.{4,4}?) Vld: (?P<Mid_Vld>.+?)
+ C50 Prf : (?P<C50_Prf>.{8,8}?) W50 Wed : (?P<W50_Wed>.{8,8}?)
+ C100 Prf: (?P<C100_Prf>.{9,9}?)W100 Wed: (?P<W100_Wed>.{9,9}?)RMX_Prf: (?P<RMX_Prf>.+?) 
+ ASFC dFB: (?P<ASFC_dFB>.+?) 
 
 \|----------------------------------- Feedback Results  flat scan --------------------------------------------------------------\|
                                                              L2     L1                                     Bnd          Pce  WR
