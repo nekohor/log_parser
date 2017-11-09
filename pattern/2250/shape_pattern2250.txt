@@ -15,19 +15,19 @@ Op Ofs \[mm\]: (?P<PrfOOF>.{7,7}?) Dev Lim  \[mm\]: (?P<Dev_Lim>.{7,7}?) \| Op O
 
 \|-------------------- Pu Strip Profile Learning ----------------------------------------------------------\|
  RM              cur       new       old
-TargetD RM B to B: (?P<RM_TargetD_RM_BtoB_cur>.{8,8}?)  (?P<RM_TargetD_RM_BtoB_new>.{8,8}?)  (?P<RM_TargetD_RM_BtoB_old>.{8,8}?) 
-TargetD RM L to L: (?P<RM_TargetD_RM_LtoL_cur>.{8,8}?)  (?P<RM_TargetD_RM_LtoL_new>.{8,8}?)  (?P<RM_TargetD_RM_LtoL_old>.{8,8}?) 
-SAMP RM B to B,  State: (?P<RM_SAMP_RM_BtoB_cur>.{8,8}?) ,fbk_State: (?P<RM_SAMP_RM_BtoB_new>.{8,8}?) ,adp_State: (?P<RM_SAMP_RM_BtoB_old>.{8,8}?) 
-SLFG RM LTL No.1,State: (?P<RM_SLFG_RM_LTL_No_1_State>.{8,8}?) ,fbk_State: (?P<RM_SLFG_RM_LTL_No_1_Fbk_State>.{8,8}?) ,adp_State: (?P<RM_SLFG_RM_LTL_No_1_Adp_State>.{8,8}?) 
-SLFG RM LTL No.2,State: (?P<RM_SLFG_RM_LTL_No_2_State>.{8,8}?) ,fbk_State: (?P<RM_SLFG_RM_LTL_No_2_Fbk_State>.{8,8}?) ,adp_State: (?P<RM_SLFG_RM_LTL_No_2_Adp_State>.{8,8}?) 
-SLFG RM LTL No.3,State: (?P<RM_SLFG_RM_LTL_No_3_State>.{8,8}?) ,fbk_State: (?P<RM_SLFG_RM_LTL_No_3_Fbk_State>.{8,8}?) ,adp_State: (?P<RM_SLFG_RM_LTL_No_3_Adp_State>.{8,8}?) 
+TargetD RM B to B:(?P<RM_TargetD_RM_BtoB_cur>.{9,9}?) (?P<RM_TargetD_RM_BtoB_new>.{9,9}?) (?P<RM_TargetD_RM_BtoB_old>.{9,9}?) 
+TargetD RM L to L:(?P<RM_TargetD_RM_LtoL_cur>.{9,9}?) (?P<RM_TargetD_RM_LtoL_new>.{9,9}?) (?P<RM_TargetD_RM_LtoL_old>.{9,9}?) 
+SAMP RM B to B,  State:(?P<RM_SAMP_RM_BtoB_cur>.{9,9}?) ,fbk_State:(?P<RM_SAMP_RM_BtoB_new>.{9,9}?) ,adp_State:(?P<RM_SAMP_RM_BtoB_old>.{9,9}?) 
+SLFG RM LTL No.1,State:(?P<RM_SLFG_RM_LTL_No_1_State>.{9,9}?) ,fbk_State:(?P<RM_SLFG_RM_LTL_No_1_Fbk_State>.{9,9}?) ,adp_State:(?P<RM_SLFG_RM_LTL_No_1_Adp_State>.{9,9}?) 
+SLFG RM LTL No.2,State:(?P<RM_SLFG_RM_LTL_No_2_State>.{9,9}?) ,fbk_State:(?P<RM_SLFG_RM_LTL_No_2_Fbk_State>.{9,9}?) ,adp_State:(?P<RM_SLFG_RM_LTL_No_2_Adp_State>.{9,9}?) 
+SLFG RM LTL No.3,State:(?P<RM_SLFG_RM_LTL_No_3_State>.{9,9}?) ,fbk_State:(?P<RM_SLFG_RM_LTL_No_3_Fbk_State>.{9,9}?) ,adp_State:(?P<RM_SLFG_RM_LTL_No_3_Adp_State>.{9,9}?) 
  TM              cur       new       old
-TargetD TM B to B: (?P<TM_TargetD_RM_BtoB_cur>.{8,8}?)  (?P<TM_TargetD_RM_BtoB_new>.{8,8}?)  (?P<TM_TargetD_RM_BtoB_old>.{8,8}?) 
-TargetD TM L to L: (?P<TM_TargetD_RM_LtoL_cur>.{8,8}?)  (?P<TM_TargetD_RM_LtoL_new>.{8,8}?)  (?P<TM_TargetD_RM_LtoL_old>.{8,8}?) 
-SAMP TM B to B,  State: (?P<TM_SAMP_RM_BtoB_cur>.{8,8}?) ,fbk_State: (?P<TM_SAMP_RM_BtoB_new>.{8,8}?) ,adp_State: (?P<TM_SAMP_RM_BtoB_old>.{8,8}?) 
-SLFG RM LTL No.1,State: (?P<TM_SLFG_RM_LTL_No_1_State>.{8,8}?) ,fbk_State: (?P<TM_SLFG_RM_LTL_No_1_Fbk_State>.{8,8}?) ,adp_State: (?P<TM_SLFG_RM_LTL_No_1_Adp_State>.{8,8}?) 
-SLFG RM LTL No.2,State: (?P<TM_SLFG_RM_LTL_No_2_State>.{8,8}?) ,fbk_State: (?P<TM_SLFG_RM_LTL_No_2_Fbk_State>.{8,8}?) ,adp_State: (?P<TM_SLFG_RM_LTL_No_2_Adp_State>.{8,8}?) 
-SLFG RM LTL No.3,State: (?P<TM_SLFG_RM_LTL_No_3_State>.{8,8}?) ,fbk_State: (?P<TM_SLFG_RM_LTL_No_3_Fbk_State>.{8,8}?) ,adp_State: (?P<TM_SLFG_RM_LTL_No_3_Adp_State>.{8,8}?) 
+TargetD TM B to B:(?P<TM_TargetD_RM_BtoB_cur>.{9,9}?) (?P<TM_TargetD_RM_BtoB_new>.{9,9}?) (?P<TM_TargetD_RM_BtoB_old>.{9,9}?) 
+TargetD TM L to L:(?P<TM_TargetD_RM_LtoL_cur>.{9,9}?) (?P<TM_TargetD_RM_LtoL_new>.{9,9}?) (?P<TM_TargetD_RM_LtoL_old>.{9,9}?) 
+SAMP TM B to B,  State:(?P<TM_SAMP_RM_BtoB_cur>.{9,9}?) ,fbk_State:(?P<TM_SAMP_RM_BtoB_new>.{9,9}?) ,adp_State:(?P<TM_SAMP_RM_BtoB_old>.{9,9}?) 
+SLFG RM LTL No.1,State:(?P<TM_SLFG_RM_LTL_No_1_State>.{9,9}?) ,fbk_State:(?P<TM_SLFG_RM_LTL_No_1_Fbk_State>.{9,9}?) ,adp_State:(?P<TM_SLFG_RM_LTL_No_1_Adp_State>.{9,9}?) 
+SLFG RM LTL No.2,State:(?P<TM_SLFG_RM_LTL_No_2_State>.{9,9}?) ,fbk_State:(?P<TM_SLFG_RM_LTL_No_2_Fbk_State>.{9,9}?) ,adp_State:(?P<TM_SLFG_RM_LTL_No_2_Adp_State>.{9,9}?) 
+SLFG RM LTL No.3,State:(?P<TM_SLFG_RM_LTL_No_3_State>.{9,9}?) ,fbk_State:(?P<TM_SLFG_RM_LTL_No_3_Fbk_State>.{9,9}?) ,adp_State:(?P<TM_SLFG_RM_LTL_No_3_Adp_State>.{9,9}?) 
 
 \|---------------------------------------- Profile Envelope \(1st Iter.\) -----------------------------------------\|
       Ef PU Prf         PU Prf        UFD PU Prf      Frc PU Wid       Frc Bnd       Pce Wr Crn       Wr Br Crn
@@ -71,7 +71,7 @@ SLFG RM LTL No.3,State: (?P<TM_SLFG_RM_LTL_No_3_State>.{8,8}?) ,fbk_State: (?P<T
 
 pas  ef_pu_prf_env     force_bnd_env       pos_shft_env     pce_wr_crn_lim    wr_br_crn_lim    pce_wr_crn_env     wr_br_crn_env     ufd_pu_prf_env   std_ex_strn_lim    ef_pu_prf_lim     ef_pu_prf_env   force_pu_wid_lim
 no     min      max      min      max      min      max      min      max      min      max      min      max      min      max      min      max      min      max      min      max      min      max     min      max 
- 0                                                               \|  0.0058  0.2641
+ 0                                                               \| (?P<pce_wr_crn_lim_max_0>.{7,7}?) (?P<wr_br_crn_lim_min_0>.{7,7}?)
  1 (?P<ef_pu_prf_env_min_1>.{8,8}?) (?P<ef_pu_prf_env_max_1>.{8,8}?) (?P<force_bnd_env_min_1>.{8,8}?) (?P<force_bnd_env_max_1>.{8,8}?) (?P<pos_shft_env_min_1>.{8,8}?) (?P<pos_shft_env_max_1>.{8,8}?) (?P<pce_wr_crn_lim_min_1>.{8,8}?) (?P<pce_wr_crn_lim_max_1>.{8,8}?) (?P<wr_br_crn_lim_min_1>.{8,8}?) (?P<wr_br_crn_lim_max_1>.{8,8}?) (?P<pce_wr_crn_env_min_1>.{8,8}?) (?P<pce_wr_crn_env_max_1>.{8,8}?) (?P<wr_br_crn_env_min_1>.{8,8}?) (?P<wr_br_crn_env_max_1>.{8,8}?) (?P<ufd_pu_prf_env_min_1>.{8,8}?) (?P<ufd_pu_prf_env_max_1>.{8,8}?) (?P<std_ex_strn_lim_min_1>.{8,8}?) (?P<std_ex_strn_lim_max_1>.{8,8}?) (?P<ef_pu_prf_lim_min_1>.{8,8}?) (?P<ef_pu_prf_lim_max_1>.{8,8}?) (?P<ef_pu_prf_env2_min_1>.{8,8}?) (?P<ef_pu_prf_env2_max_1>.{8,8}?) (?P<force_pu_wid_lim_min_1>.{8,8}?) (?P<force_pu_wid_lim_max_1>.{8,8}?) (?P<others_repeat_1>.{35,35}?) 
  2 (?P<ef_pu_prf_env_min_2>.{8,8}?) (?P<ef_pu_prf_env_max_2>.{8,8}?) (?P<force_bnd_env_min_2>.{8,8}?) (?P<force_bnd_env_max_2>.{8,8}?) (?P<pos_shft_env_min_2>.{8,8}?) (?P<pos_shft_env_max_2>.{8,8}?) (?P<pce_wr_crn_lim_min_2>.{8,8}?) (?P<pce_wr_crn_lim_max_2>.{8,8}?) (?P<wr_br_crn_lim_min_2>.{8,8}?) (?P<wr_br_crn_lim_max_2>.{8,8}?) (?P<pce_wr_crn_env_min_2>.{8,8}?) (?P<pce_wr_crn_env_max_2>.{8,8}?) (?P<wr_br_crn_env_min_2>.{8,8}?) (?P<wr_br_crn_env_max_2>.{8,8}?) (?P<ufd_pu_prf_env_min_2>.{8,8}?) (?P<ufd_pu_prf_env_max_2>.{8,8}?) (?P<std_ex_strn_lim_min_2>.{8,8}?) (?P<std_ex_strn_lim_max_2>.{8,8}?) (?P<ef_pu_prf_lim_min_2>.{8,8}?) (?P<ef_pu_prf_lim_max_2>.{8,8}?) (?P<ef_pu_prf_env2_min_2>.{8,8}?) (?P<ef_pu_prf_env2_max_2>.{8,8}?) (?P<force_pu_wid_lim_min_2>.{8,8}?) (?P<force_pu_wid_lim_max_2>.{8,8}?) (?P<others_repeat_2>.{35,35}?) 
  3 (?P<ef_pu_prf_env_min_3>.{8,8}?) (?P<ef_pu_prf_env_max_3>.{8,8}?) (?P<force_bnd_env_min_3>.{8,8}?) (?P<force_bnd_env_max_3>.{8,8}?) (?P<pos_shft_env_min_3>.{8,8}?) (?P<pos_shft_env_max_3>.{8,8}?) (?P<pce_wr_crn_lim_min_3>.{8,8}?) (?P<pce_wr_crn_lim_max_3>.{8,8}?) (?P<wr_br_crn_lim_min_3>.{8,8}?) (?P<wr_br_crn_lim_max_3>.{8,8}?) (?P<pce_wr_crn_env_min_3>.{8,8}?) (?P<pce_wr_crn_env_max_3>.{8,8}?) (?P<wr_br_crn_env_min_3>.{8,8}?) (?P<wr_br_crn_env_max_3>.{8,8}?) (?P<ufd_pu_prf_env_min_3>.{8,8}?) (?P<ufd_pu_prf_env_max_3>.{8,8}?) (?P<std_ex_strn_lim_min_3>.{8,8}?) (?P<std_ex_strn_lim_max_3>.{8,8}?) (?P<ef_pu_prf_lim_min_3>.{8,8}?) (?P<ef_pu_prf_lim_max_3>.{8,8}?) (?P<ef_pu_prf_env2_min_3>.{8,8}?) (?P<ef_pu_prf_env2_max_3>.{8,8}?) (?P<force_pu_wid_lim_min_3>.{8,8}?) (?P<force_pu_wid_lim_max_3>.{8,8}?) (?P<others_repeat_3>.{35,35}?) 

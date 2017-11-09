@@ -146,22 +146,23 @@ kind = "ssu"
 root_dir = "C:/document/GSM/GSM/Out"
 
 
-line = 1580
-month = 201709
-day = 1
+line = 2250
+month = 201711
+day = 3
 
 # pattern file
 p_list = compile_pattern(pattern_select(line, kind))
 
 # 当前目录
 current_dir = generate_path(root_dir, month, day)
-current_dir = "C:/document/GSM/GSM/Out/test"
+current_dir = "C:/document/板形问题分析/10月3日锁定窜辊堆钢分析/shape_a_004/ssu"
 
 # 批量汇总文件和卷号
 file_list = [x for x in os.listdir(current_dir) if x.startswith(
     filename_head(kind, line)) if x.endswith(filename_end())]
 coil_id_list = [x.split("_")[1] for x in file_list]
 
+print([x for x in os.listdir(current_dir)])
 # --- 单卷测试 ---
 # df = pd.DataFrame()
 # sf_name = sample_select(line, kind)
