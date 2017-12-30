@@ -143,10 +143,10 @@ def sample_select(line, kind):
 # --- new func ---
 # setup parameter
 kind = "ssu"
-root_dir = "C:/document/GSM/GSM/Out"
+root_dir = "i:/1580log/GSM/"
 
 
-line = 2250
+line = 1580
 month = 201711
 day = 3
 
@@ -154,8 +154,8 @@ day = 3
 p_list = compile_pattern(pattern_select(line, kind))
 
 # 当前目录
-current_dir = generate_path(root_dir, month, day)
-current_dir = "C:/document/板形问题分析/10月3日锁定窜辊堆钢分析/shape_a_004/ssu"
+current_dir = generate_path(root_dir, str(month), month_day(month, day))
+current_dir = "e:/log_test/"
 
 # 批量汇总文件和卷号
 file_list = [x for x in os.listdir(current_dir) if x.startswith(
@@ -191,7 +191,9 @@ for file in file_list:
 # ------------
 
 # 保存DataFrame
-dest_dir = "../data/result_%d_%s.xlsx" % (line, month_day(month, day))
+dest_dir = (current_dir +
+            "data/result_%d_%s.xlsx" % (line, month_day(month, day))
+            )
 df.to_excel(dest_dir)
 df = pd.read_excel(dest_dir)
 
@@ -199,3 +201,5 @@ df = pd.read_excel(dest_dir)
 with open("type%d.txt" % line, "w") as f:
     for idx, tp in zip(df.dtypes.index, df.dtypes):
         f.write("%30s : %20s \n" % (str(idx), str(tp)))
+
+df.to_excel(dest_dir)
