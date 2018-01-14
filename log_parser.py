@@ -147,8 +147,8 @@ root_dir = "i:/1580log/GSM"
 
 
 line = 1580
-month = 201711
-day = 3
+month = 201801
+day = 13
 
 # pattern file
 p_list = compile_pattern(pattern_select(line, kind))
@@ -156,6 +156,7 @@ p_list = compile_pattern(pattern_select(line, kind))
 # 当前目录
 current_dir = generate_path(root_dir, str(month), month_day(month, day))
 current_dir = "e:/log_test/"
+current_dir = "c:/log_test/"
 
 # 批量汇总文件和卷号
 file_list = [x for x in os.listdir(current_dir) if x.startswith(
