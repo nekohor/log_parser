@@ -143,7 +143,7 @@ def sample_select(line, kind):
 # --- new func ---
 # setup parameter
 kind = "ssu"
-root_dir = "i:/1580log/GSM/"
+root_dir = "i:/1580log/GSM"
 
 
 line = 1580
