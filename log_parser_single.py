@@ -195,6 +195,7 @@ def main(line, current_dir):
     #     for idx, tp in zip(df.dtypes.index, df.dtypes):
     #         f.write("%30s : %20s \n" % (str(idx), str(tp)))
     df.to_excel(des_filename)
+    restruct(des_filename)
 
 
 if __name__ == '__main__':

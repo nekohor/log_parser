@@ -17,3 +17,7 @@ matplotlib.style.use('ggplot')
 
 plt.rcParams["font.sans-serif"] = ["Microsoft Yahei"]
 plt.rcParams["axes.unicode_minus"] = False
+
+
+def restruct(filename):
+    pass
