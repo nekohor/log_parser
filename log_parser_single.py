@@ -11,6 +11,7 @@ from docx.shared import Inches
 import re
 import asyncio
 import aiofiles
+from struct import restruct
 matplotlib.style.use('ggplot')
 
 
@@ -140,73 +141,72 @@ def sample_select(line, kind):
         return ('pattern/%d/shape_sample%d.txt' % (line, line))
 
 
-# --- new func ---
-# setup parameter
-kind = "ssu"
-suffix = "cx"
-root_dir = "i:/1580log/GSM"
+def main(line, current_dir):
+    kind = "ssu"
+    suffix = "cx"
+    # pattern file
+    p_list = compile_pattern(pattern_select(line, kind, suffix))
+
+    # 批量汇总文件和卷号
+    file_list = [x for x in os.listdir(current_dir) if x.startswith(
+        filename_head(kind, line)) if x.endswith(filename_end(suffix))]
+    # coil_id_list = [x.split("_")[1] for x in file_list]
+
+    print([x for x in os.listdir(current_dir)])
+    # --- 单卷测试 ---
+    # df = pd.DataFrame()
+    # sf_name = sample_select(line, kind)
+    # parse_data(coil_id_list[0], df, p_list, sf_name)
+
+    # --- 同步 ---
+    df = pd.DataFrame()
+    for file in file_list:
+        print(file)
+        coil_id = file.split("_")[1]
+        sf_name = "/".join([current_dir, file])
+        parse_data(coil_id, df, p_list, sf_name)
+
+    # --- 异步 如果从网络上读取，可能用这种方式实现更快 ---
+    # df = pd.DataFrame()
+    # tasks = []
+    # for file in file_list:
+    #     print(file)
+    #     coil_id = file.split("_")[1]
+    #     sf_name = "/".join([current_dir, file])
+    #     tasks.append(fetch(coil_id, df, p_list, sf_name))
+    # loop = asyncio.get_event_loop()
+    # loop.run_until_complete(asyncio.wait(tasks))
+    # loop.close()
+    # ------------
+
+    # 保存DataFrame
+    dest_dir = "/".join([current_dir, "parsed_data"])
+    if not os.path.exists(dest_dir):
+        os.makedirs(dest_dir)
+    des_filename = (
+        dest_dir +
+        "/parsed_result_{}.xlsx".format(line)
+    )
+    df.to_excel(des_filename)
+
+    # 记录数据类型和parse excel format
+    df = pd.read_excel(des_filename)
+    # with open("type%d.txt" % line, "w") as f:
+    #     for idx, tp in zip(df.dtypes.index, df.dtypes):
+    #         f.write("%30s : %20s \n" % (str(idx), str(tp)))
+    df.to_excel(des_filename)
 
 
-line = 1580
-month = 201803
-day = 13
+if __name__ == '__main__':
 
-# pattern file
-p_list = compile_pattern(pattern_select(line, kind, suffix))
+    # setup parameter
+    line = 1580
 
-# 当前目录
-current_dir = generate_path(root_dir, str(month), month_day(month, day))
-current_dir = "e:/log_test/20180319_SAPH440-P"
+    # root_dir = "i:/1580log/GSM"
+    # month = 201803
+    # day = 13
 
-# 批量汇总文件和卷号
-file_list = [x for x in os.listdir(current_dir) if x.startswith(
-    filename_head(kind, line)) if x.endswith(filename_end(suffix))]
-coil_id_list = [x.split("_")[1] for x in file_list]
-
-print([x for x in os.listdir(current_dir)])
-# --- 单卷测试 ---
-# df = pd.DataFrame()
-# sf_name = sample_select(line, kind)
-# parse_data(coil_id_list[0], df, p_list, sf_name)
-
-# --- 同步 ---
-df = pd.DataFrame()
-for file in file_list:
-    print(file)
-    coil_id = file.split("_")[1]
-    sf_name = "/".join([current_dir, file])
-    parse_data(coil_id, df, p_list, sf_name)
-
-
-# --- 异步 如果从网络上读取，可能用这种方式实现更快 ---
-# df = pd.DataFrame()
-# tasks = []
-# for file in file_list:
-#     print(file)
-#     coil_id = file.split("_")[1]
-#     sf_name = "/".join([current_dir, file])
-#     tasks.append(fetch(coil_id, df, p_list, sf_name))
-# loop = asyncio.get_event_loop()
-# loop.run_until_complete(asyncio.wait(tasks))
-# loop.close()
-# ------------
-
-# 保存DataFrame
-dest_dir = "/".join([current_dir, "data"])
-if not os.path.exists(dest_dir):
-    os.makedirs(dest_dir)
-des_filename = (
-    dest_dir +
-    "/result_{}_{}.xlsx".format(line, month_day(month, day))
-)
-
-df.to_excel(des_filename)
-
-
-# 记录数据类型和parse excel format
-df = pd.read_excel(des_filename)
-with open("type%d.txt" % line, "w") as f:
-    for idx, tp in zip(df.dtypes.index, df.dtypes):
-        f.write("%30s : %20s \n" % (str(idx), str(tp)))
-
-df.to_excel(des_filename)
+    # 当前目录
+    # current_dir = generate_path(root_dir, str(month), month_day(month, day))
+    current_dir = "e:/log_test/20180319_SAPH440-P"
+    main(line, current_dir)
