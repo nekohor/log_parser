@@ -40,8 +40,8 @@ def filename_head(kind, line):
     return "_".join([kind, head])
 
 
-def filename_end():
-    return "fbk.txt"
+def filename_end(suffix):
+    return "{}.txt".format(suffix)
 
 
 def compile_pattern(pf_name):
@@ -130,9 +130,9 @@ def parse_data_old(col_id, df, pf_name, sf_name):
                     df.loc[col_id, col_list[i]] = mobj.groups()[i]
 
 
-def pattern_select(line, kind):
+def pattern_select(line, kind, suffix):
     if kind == "ssu":
-        return ('pattern/%d/shape_pattern%d.txt' % (line, line))
+        return 'pattern/{}/shape_pattern{}_{}.txt'.format(line, line, suffix)
 
 
 def sample_select(line, kind):
@@ -143,24 +143,24 @@ def sample_select(line, kind):
 # --- new func ---
 # setup parameter
 kind = "ssu"
+suffix = "cx"
 root_dir = "i:/1580log/GSM"
 
 
 line = 1580
-month = 201801
+month = 201803
 day = 13
 
 # pattern file
-p_list = compile_pattern(pattern_select(line, kind))
+p_list = compile_pattern(pattern_select(line, kind, suffix))
 
 # 当前目录
 current_dir = generate_path(root_dir, str(month), month_day(month, day))
-current_dir = "e:/log_test/"
-current_dir = "c:/log_test/"
+current_dir = "e:/log_test/20180319_SAPH440-P"
 
 # 批量汇总文件和卷号
 file_list = [x for x in os.listdir(current_dir) if x.startswith(
-    filename_head(kind, line)) if x.endswith(filename_end())]
+    filename_head(kind, line)) if x.endswith(filename_end(suffix))]
 coil_id_list = [x.split("_")[1] for x in file_list]
 
 print([x for x in os.listdir(current_dir)])
@@ -192,15 +192,21 @@ for file in file_list:
 # ------------
 
 # 保存DataFrame
-dest_dir = (current_dir +
-            "data/result_%d_%s.xlsx" % (line, month_day(month, day))
-            )
-df.to_excel(dest_dir)
-df = pd.read_excel(dest_dir)
+dest_dir = "/".join([current_dir, "data"])
+if not os.path.exists(dest_dir):
+    os.makedirs(dest_dir)
+des_filename = (
+    dest_dir +
+    "/result_{}_{}.xlsx".format(line, month_day(month, day))
+)
 
-# 记录数据类型
+df.to_excel(des_filename)
+
+
+# 记录数据类型和parse excel format
+df = pd.read_excel(des_filename)
 with open("type%d.txt" % line, "w") as f:
     for idx, tp in zip(df.dtypes.index, df.dtypes):
         f.write("%30s : %20s \n" % (str(idx), str(tp)))
 
-df.to_excel(dest_dir)
+df.to_excel(des_filename)
